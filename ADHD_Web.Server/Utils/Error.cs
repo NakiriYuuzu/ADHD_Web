@@ -4,23 +4,13 @@ public abstract class Error;
 
 public abstract class Result<TD, TE> where TE : Error
 {
-    public class Success : Result<TD, TE>
+    public class Success(TD data) : Result<TD, TE>
     {
-        public TD Data { get; }
-
-        public Success(TD data)
-        {
-            Data = data;
-        }
+        public TD Data { get; } = data;
     }
 
-    public class Failure : Result<TD, TE>
+    public class Failure(TE error) : Result<TD, TE>
     {
-        public TE Error { get; }
-
-        public Failure(TE error)
-        {
-            Error = error;
-        }
+        public TE Error { get; } = error;
     }
 }
