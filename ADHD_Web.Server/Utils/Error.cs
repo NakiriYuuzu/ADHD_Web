@@ -1,8 +1,6 @@
 namespace ADHD_Web.Server.Utils;
 
-public abstract class Error
-{
-}
+public abstract class Error;
 
 public abstract class Result<TD, TE> where TE : Error
 {
