@@ -18,12 +18,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="forecast in post" :key="forecast.date">
-                      <td>{{forecast}}}</td>
-                        <td>{{ forecast.date }}</td>
-                        <td>{{ forecast.temperatureC }}</td>
-                        <td>{{ forecast.temperatureF }}</td>
-                        <td>{{ forecast.summary }}</td>
+                    <tr v-for="player in post" :key="post.id">
+                        <td>{{ player }}</td>
+                        <td>{{ player }}</td>
+                        <td>{{ player }}</td>
+                        <td>{{ player }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -33,17 +32,17 @@
 
 <script lang="ts">
     import { defineComponent } from 'vue';
-
-    type Forecasts = {
-        date: string,
-        temperatureC: string,
-        temperatureF: string,
-        summary: string
-    }[];
+    
+    type Players = {
+        id: number,
+        name: string,
+        age: number,
+        gender: string
+    }
 
     interface Data {
         loading: boolean,
-        post: null | Forecasts
+        post: null | Players
     }
 
     export default defineComponent({
@@ -70,7 +69,7 @@
                 fetch('api/Players')
                     .then(r => r.json())
                     .then(json => {
-                        this.post = json as Forecasts;
+                        this.post = json as Players;
                         this.loading = false;
                         return;
                     });
