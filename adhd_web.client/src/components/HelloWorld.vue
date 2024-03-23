@@ -11,18 +11,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="player in post" :key="post.id">
-                        <td>{{ player }}</td>
-                        <td>{{ player }}</td>
-                        <td>{{ player }}</td>
-                        <td>{{ player }}</td>
+                    <tr v-for="player in post" :key="post.playerId">
+                        <td>{{ player.playerId }}</td>
+                        <td>{{ player.name }}</td>
+                        <td>{{ player.gender }}</td>
+                        <td>{{ player.age }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -34,7 +34,7 @@
     import { defineComponent } from 'vue';
     
     type Players = {
-        id: number,
+        playerId: number,
         name: string,
         age: number,
         gender: string
@@ -66,7 +66,7 @@
                 this.post = null;
                 this.loading = true;
 
-                fetch('api/Players')
+                fetch('api/Players?pageNumber=1&pageSize=10')
                     .then(r => r.json())
                     .then(json => {
                         this.post = json as Players;

@@ -1,6 +1,6 @@
 @ADHD_Web.Server_HostAddress = http://localhost:5191
 
-GET {{ADHD_Web.Server_HostAddress}}/weatherforecast/
+GET {{ADHD_Web.Server_HostAddress}}/api/Players/
 Accept: application/json
 
 ###
