@@ -21,12 +21,12 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
                 Result<IEnumerable<Players>, DataError>.Success success => Ok(success.Data),
                 Result<IEnumerable<Players>, DataError>.Failure failure => failure.Error switch
                 {
-                    { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
-                    { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
+                    { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, new {message = error.Message}),
+                    { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, new {message = error.Message}),
 
-                    _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.")
+                    _ => StatusCode(StatusCodes.Status500InternalServerError, new {message = "An unexpected error occurred."})
                 },
-                _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected result type was received.")
+                _ => StatusCode(StatusCodes.Status500InternalServerError, new {message = "An unexpected result type was received."})
             };
         });
     }
@@ -42,9 +42,9 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
             {
                 { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
                 { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
-                _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.")
+                _ => StatusCode(StatusCodes.Status500InternalServerError, new {message = "An unexpected error occurred."})
             },
-            _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected result type was received.")
+            _ => StatusCode(StatusCodes.Status500InternalServerError, new {message = "An unexpected result type was received."})
         };
     }
     
@@ -59,9 +59,9 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
             {
                 { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
                 { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
-                _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.")
+                _ => StatusCode(StatusCodes.Status500InternalServerError, new {message = "An unexpected error occurred."})
             },
-            _ => StatusCode(StatusCodes.Status500InternalServerError, "An unexpected result type was received.")
+            _ => StatusCode(StatusCodes.Status500InternalServerError, new {message = "An unexpected result type was received."})
         };
     }
 }
