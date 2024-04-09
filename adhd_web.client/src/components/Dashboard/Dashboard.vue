@@ -48,8 +48,6 @@ export default defineComponent({
                     throw new Error(`${r.status}: ${data.message}` || 'An error occurred')
                 })
                 .then(json => {
-                    console.log('json')
-                    console.log(json)
                     this.result = {type: ResultType.SUCCESS, data: json}
                 })
                 .catch(e => {
