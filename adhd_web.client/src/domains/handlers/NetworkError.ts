@@ -8,6 +8,8 @@
 
 function getNetworkErrorFromStatusCode(statusCode: number): NetworkError {
     switch (statusCode) {
+        case 0:
+            return NetworkError.NO_INTERNET
         case 400:
             return NetworkError.BAD_REQUEST
         case 404:

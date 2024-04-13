@@ -17,14 +17,8 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+import {type Player} from '@/models/Player'
 import {type Result, ResultType} from "@/domains/handlers/Result"
-
-type Data = {
-    playerId: number,
-    name: string,
-    age: number,
-    gender: string
-}
 
 export default defineComponent({
     name: 'Dashboard',
@@ -33,7 +27,7 @@ export default defineComponent({
             return ResultType
         }
     },
-    data(): { result: Result<Data, string> } {
+    data(): { result: Result<Player, string> } {
         return {
             result: {type: ResultType.IDLE},
         };
