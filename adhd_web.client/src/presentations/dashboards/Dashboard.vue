@@ -1,4 +1,4 @@
-﻿<template>
+<template>
     <div class="container mx-auto px-4">
         <h1 class="text-2xl font-bold text-center my-5">Player Information</h1>
         <div v-if="result.type == ResultType.LOADING" class="text-center">Loading...</div>

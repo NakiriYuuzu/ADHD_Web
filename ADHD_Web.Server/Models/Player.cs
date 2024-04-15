@@ -3,14 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ADHD_Web.Server.Models;
 
-public class Players
+public class Player
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int PlayerId { get; set; }
+    public Guid Id { get; internal set; }
     public string Name { get; set; }
     public int Age { get; set; }
     public string Gender { get; set; }
-    
-    // public ICollection<PlayerLevel> PlayerLevels { get; set; }
+    public DateTime CreatedAt { get; internal set; }
 }

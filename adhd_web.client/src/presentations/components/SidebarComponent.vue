@@ -1,7 +1,7 @@
 <template>
     <default-sidebar>
         <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
-            <side-menu title="Home" mini-title="Home" :static-item="true"></side-menu>
+            <side-menu title="Home" :static-item="true"></side-menu>
             <side-menu isTag="router-link" title="Dashboard" icon="view-grid" :icon-size="10" icon-type="solid"
                        :route="{ to: 'default.dashboard' }"></side-menu>
         </ul>

@@ -1,6 +1,6 @@
 ﻿import {createRouter, createWebHistory} from 'vue-router'
 
-const authChildRoutes = (prefix) => [
+const authChildRoutes = (prefix: string) => [
     {
         path: 'login',
         name: prefix + '.login',
@@ -33,12 +33,13 @@ const authChildRoutes = (prefix) => [
     }
 ]
 
-const defaultChildRoutes = (prefix) => [
+const defaultChildRoutes = (prefix: string) => [
     {
         path: '',
         name: prefix + '.dashboard',
         meta: { auth: true, name: 'Home', isBanner: true },
         component: () => import('@/views/dashboards/IndexPage.vue')
+        // component: () => import('@/presentations/dashboards/Dashboard.vue')
     },
     // icons
     {
@@ -93,7 +94,7 @@ const defaultChildRoutes = (prefix) => [
     }
 ]
 
-const errorRoutes = (prefix) => [
+const errorRoutes = (prefix: string) => [
     // Error Pages
     {
         path: '404',

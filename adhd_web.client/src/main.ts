@@ -3,6 +3,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './routes'
 import store from './store'
+// import './assets/main.css' // Importing Tailwind CSS
 
 // Library Components
 import VueSweetalert2 from 'vue-sweetalert2'

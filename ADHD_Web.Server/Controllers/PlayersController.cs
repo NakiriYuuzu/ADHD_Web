@@ -1,4 +1,5 @@
 using ADHD_Web.Server.Domains;
+using ADHD_Web.Server.Domains.validators;
 using ADHD_Web.Server.Models;
 using ADHD_Web.Server.Services;
 using ADHD_Web.Server.Utils;
@@ -18,8 +19,8 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
             var result = task.Result;
             return result switch
             {
-                Result<IEnumerable<Players>, DataError>.Success success => Ok(success.Data),
-                Result<IEnumerable<Players>, DataError>.Failure failure => failure.Error switch
+                Result<IEnumerable<Player>, DataError>.Success success => Ok(success.Data),
+                Result<IEnumerable<Player>, DataError>.Failure failure => failure.Error switch
                 {
                     { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, new {message = error.Message}),
                     { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, new {message = error.Message}),
@@ -37,8 +38,8 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
         var result = await playersService.GetPlayerById(id);
         return result switch
         {
-            Result<Players, DataError>.Success success => Ok(success.Data),
-            Result<Players, DataError>.Failure failure => failure.Error switch
+            Result<Player, DataError>.Success success => Ok(success.Data),
+            Result<Player, DataError>.Failure failure => failure.Error switch
             {
                 { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
                 { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
@@ -49,13 +50,25 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post(Players player)
+    public async Task<IActionResult> Post(Player player)
     {
-        var result = await playersService.AddPlayer(player);
+        var ageValidator = PlayerValidator.VerifyAge(player.Age);
+        var genderValidator = PlayerValidator.VerifyGender(player.Gender);
+        if (!ageValidator) return BadRequest(new {message = "Age is invalid."});
+        if (!genderValidator) return BadRequest(new { message = "Please check your gender in " + string.Join(", ", PlayerValidator.GenderList) });
+
+        var newPlayer = new Player
+        {
+            Name = player.Name,
+            Age = player.Age,
+            Gender = player.Gender
+        };
+        
+        var result = await playersService.AddPlayer(newPlayer);
         return result switch
         {
-            Result<Players, DataError>.Success success => CreatedAtAction(nameof(Get), new { id = success.Data.PlayerId }, success.Data),
-            Result<Players, DataError>.Failure failure => failure.Error switch
+            Result<Player, DataError>.Success success => CreatedAtAction(nameof(Get), new { id = success.Data.Id }, success.Data),
+            Result<Player, DataError>.Failure failure => failure.Error switch
             {
                 { DataErrorType: DataErrorType.UnknownError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
                 { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(StatusCodes.Status500InternalServerError, error.Message),
