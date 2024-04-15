@@ -10,16 +10,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
+    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources/0358a6a4-fd62-40cf-bd23-020fdd68403b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources/0358a6a4-fd62-40cf-bd23-020fdd68403b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/LevelsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/LevelsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/20240415162451_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/20240415162451_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/AdhdDbContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/LevelRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Models/LevelRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/LevelService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/LevelService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/IPlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/IPlayersService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/PlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/PlayersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/.env" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/components/DataTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/components/DataTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/components/custom/loader/LoaderComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/components/custom/loader/LoaderComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/layouts/guest/BlankLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/layouts/guest/BlankLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/DashboardNavbarComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/DashboardNavbarComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/dashboards/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/dashboards/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/auth/default/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/views/auth/default/SignIn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/errors/Error404Page.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/views/errors/Error404Page.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +51,9 @@
     &quot;accountId&quot;: &quot;474e2494-33ed-4faf-95ce-81b4dd2f48ae&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/adhd_web.client/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -153,7 +163,10 @@
       <updated>1713167251527</updated>
       <workItem from="1713167252606" duration="1569000" />
       <workItem from="1713184024045" duration="14798000" />
-      <workItem from="1713199928107" duration="1719000" />
+      <workItem from="1713199928107" duration="4216000" />
+      <workItem from="1713204193697" duration="14000" />
+      <workItem from="1713204222662" duration="4121000" />
+      <workItem from="1713208360565" duration="757000" />
     </task>
     <task id="LOCAL-00001" summary="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
       <option name="closed" value="true" />
@@ -163,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713200480369</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Version: 0.1.0-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;&#10;BugsFix:&#10;1. Api Problem.">
+      <option name="closed" value="true" />
+      <created>1713201923220</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713201923220</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +196,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Version: 0.0.1-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;&#10;Features:&#10;1. HopeUI.&#10;&#10;BugsFix:&#10;NAN" />
     <MESSAGE value="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN" />
+    <MESSAGE value="Version: 0.1.0-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;&#10;BugsFix:&#10;1. Api Problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version: 0.1.0-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;&#10;BugsFix:&#10;1. Api Problem." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

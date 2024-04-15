@@ -76,6 +76,9 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import BrandLogo from "@/components/custom/logo/BrandLogo.vue";
+import BrandName from "@/components/custom/logo/BrandName.vue";
+</script>
 
 <style lang="scss" scoped></style>

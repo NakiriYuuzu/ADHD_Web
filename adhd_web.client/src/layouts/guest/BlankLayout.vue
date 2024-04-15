@@ -1,8 +1,8 @@
 <template>
-  <router-view> </router-view>
+    <router-view></router-view>
 </template>
 <script>
 export default {
-  name: 'blank-layout'
+    name: 'blank-layout'
 }
 </script>

@@ -8,7 +8,7 @@ namespace ADHD_Web.Server.Services;
 
 public class PlayersService(AdhdDbContext context, ILogger<PlayersService> logger) : IPlayersService
 {
-    public async Task<Result<IEnumerable<Player>, DataError>> GetAllPlayers(int pageNumber, int pageSize)
+    public async Task<Result<IEnumerable<Player>, DataError>> GetAllPlayers()
     {
         try
         {
@@ -16,8 +16,8 @@ public class PlayersService(AdhdDbContext context, ILogger<PlayersService> logge
             var players = await playerQuery
                 .Include(p => p.LevelRecords)
                 .OrderBy(p => p.Id)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
+                // .Skip((pageNumber - 1) * pageSize)
+                // .Take(pageSize)
                 .ToListAsync();
 
             return new Result<IEnumerable<Player>, DataError>.Success(players);

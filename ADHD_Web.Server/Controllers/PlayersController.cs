@@ -12,9 +12,9 @@ namespace ADHD_Web.Server.Controllers;
 public class PlayersController(IPlayersService playersService) : ControllerBase
 {
     [HttpGet(Name = "GetPlayers")]
-    public Task<IActionResult> Get(int pageNumber, int pageSize)
+    public Task<IActionResult> Get()
     {
-        return playersService.GetAllPlayers(pageNumber, pageSize).ContinueWith<IActionResult>(task =>
+        return playersService.GetAllPlayers().ContinueWith<IActionResult>(task =>
         {
             var result = task.Result;
             return result switch

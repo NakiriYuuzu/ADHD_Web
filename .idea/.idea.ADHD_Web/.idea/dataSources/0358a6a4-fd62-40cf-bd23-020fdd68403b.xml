@@ -1289,7 +1289,7 @@
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="512" parent="1" name="ADHD_DB">
-      <LastIntrospectionLocalTimestamp>2024-04-15.17:16:50</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-04-15.18:38:33</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="513" parent="1" name="mariadb.sys">
@@ -1309,5 +1309,130 @@
       <Host>localhost</Host>
     </user>
     <user id="519" parent="1" name="yuuzu"/>
+    <table id="520" parent="512" name="LevelRecords">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="521" parent="512" name="Players">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="522" parent="512" name="__EFMigrationsHistory">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <column id="523" parent="520" name="Id">
+      <DasType>char(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <CollationName>ascii_general_ci</CollationName>
+    </column>
+    <column id="524" parent="520" name="PlayerId">
+      <DasType>char(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <CollationName>ascii_general_ci</CollationName>
+    </column>
+    <column id="525" parent="520" name="LevelNumber">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="526" parent="520" name="Difficulty">
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="527" parent="520" name="StartTime">
+      <DasType>datetime(6)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="528" parent="520" name="EndTime">
+      <DasType>datetime(6)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="529" parent="520" name="CreatedAt">
+      <DasType>datetime(6)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <foreign-key id="530" parent="520" name="FK_LevelRecords_Players_PlayerId">
+      <ColNames>PlayerId</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>Id</RefColNames>
+      <RefTableName>Players</RefTableName>
+    </foreign-key>
+    <index id="531" parent="520" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="532" parent="520" name="IX_LevelRecords_PlayerId">
+      <ColNames>PlayerId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="533" parent="520" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="534" parent="521" name="Id">
+      <DasType>char(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <CollationName>ascii_general_ci</CollationName>
+    </column>
+    <column id="535" parent="521" name="Name">
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="536" parent="521" name="Age">
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="537" parent="521" name="Gender">
+      <DasType>longtext|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="538" parent="521" name="CreatedAt">
+      <DasType>datetime(6)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <index id="539" parent="521" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="540" parent="521" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="541" parent="522" name="MigrationId">
+      <DasType>varchar(150)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="542" parent="522" name="ProductVersion">
+      <DasType>varchar(32)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="543" parent="522" name="PRIMARY">
+      <ColNames>MigrationId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="544" parent="522" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
