@@ -33,7 +33,7 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
     }
     
     [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int id)
+    public async Task<IActionResult> Get(Guid id)
     {
         var result = await playersService.GetPlayerById(id);
         return result switch

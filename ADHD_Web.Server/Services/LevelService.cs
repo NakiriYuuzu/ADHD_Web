@@ -14,7 +14,6 @@ public class LevelService(AdhdDbContext context, ILogger<PlayersService> logger)
         {
             var levelRecordQuery = context.LevelRecords.AsNoTracking();
             var levelRecords = await levelRecordQuery
-                .Include(lr => lr.Player)
                 .OrderBy(lr => lr.Id)
                 .ToListAsync();
 
@@ -34,13 +33,55 @@ public class LevelService(AdhdDbContext context, ILogger<PlayersService> logger)
         }
     }
 
-    public Task<Result<LevelRecord, DataError>> GetLevelById(Guid id)
+    public async Task<Result<LevelRecord, DataError>> GetLevelById(Guid id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var levelRecord = await context.LevelRecords.FindAsync(id);
+
+            if (levelRecord == null)
+            {
+                return new Result<LevelRecord, DataError>.Failure(new DataError(
+                    dataErrorType: DataErrorType.NotFound,
+                    message: $"Level with id {id} was not found."
+                ));
+            }
+
+            return new Result<LevelRecord, DataError>.Success(levelRecord);
+        }
+        catch (DbException e)
+        {
+            logger.LogError(e, "Database error occurred while retrieving a player.");
+            return new Result<LevelRecord, DataError>.Failure(new DataError(DataErrorType.DatabaseError,
+                "Database error occurred."));
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "Unknown error occurred while retrieving a player.");
+            return new Result<LevelRecord, DataError>.Failure(new DataError(DataErrorType.UnknownError, e.Message));
+        }
     }
 
-    public Task<Result<LevelRecord, DataError>> AddLevel(LevelRecord levelRecord)
+    public async Task<Result<LevelRecord, DataError>> AddLevel(LevelRecord levelRecord)
     {
-        throw new NotImplementedException();
+        try
+        {
+            levelRecord.CreatedAt = DateTime.Now;
+            
+            await context.LevelRecords.AddAsync(levelRecord);
+            await context.SaveChangesAsync();
+            return new Result<LevelRecord, DataError>.Success(levelRecord);
+        }
+        catch (DbException e)
+        {
+            logger.LogError(e, "Database error occurred while adding a player.");
+            return new Result<LevelRecord, DataError>.Failure(new DataError(DataErrorType.DatabaseError,
+                "Database error occurred."));
+        }
+        catch (Exception e)
+        {
+            logger.LogError(e, "Unknown error occurred while adding a player.");
+            return new Result<LevelRecord, DataError>.Failure(new DataError(DataErrorType.UnknownError, e.Message));
+        }
     }
 }

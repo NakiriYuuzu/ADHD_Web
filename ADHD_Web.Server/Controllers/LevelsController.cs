@@ -34,4 +34,26 @@ public class LevelsController(ILevelService levelService) : ControllerBase
             };
         });
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] LevelRecord levelRecord)
+    {
+        var result = await levelService.AddLevel(levelRecord);
+        return result switch
+        {
+            Result<LevelRecord, DataError>.Success success => CreatedAtAction(nameof(Get), new { id = success.Data.Id }, success.Data),
+            Result<LevelRecord, DataError>.Failure failure => failure.Error switch
+            {
+                { DataErrorType: DataErrorType.UnknownError } error => StatusCode(
+                    StatusCodes.Status500InternalServerError, new { message = error.Message }),
+                { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(
+                    StatusCodes.Status500InternalServerError, new { message = error.Message }),
+
+                _ => StatusCode(StatusCodes.Status500InternalServerError,
+                    new { message = "An unexpected error occurred." })
+            },
+            _ => StatusCode(StatusCodes.Status500InternalServerError,
+                new { message = "An unexpected result type was received." })
+        };
+    }
 }

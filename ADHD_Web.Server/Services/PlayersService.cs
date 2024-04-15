@@ -14,6 +14,7 @@ public class PlayersService(AdhdDbContext context, ILogger<PlayersService> logge
         {
             var playerQuery = context.Players.AsNoTracking();
             var players = await playerQuery
+                .Include(p => p.LevelRecords)
                 .OrderBy(p => p.Id)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
@@ -35,7 +36,7 @@ public class PlayersService(AdhdDbContext context, ILogger<PlayersService> logge
         }
     }
 
-    public async Task<Result<Player, DataError>> GetPlayerById(int id)
+    public async Task<Result<Player, DataError>> GetPlayerById(Guid id)
     {
         try
         {

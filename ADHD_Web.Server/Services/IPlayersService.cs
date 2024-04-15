@@ -7,6 +7,6 @@ namespace ADHD_Web.Server.Services;
 public interface IPlayersService
 {
     Task<Result<IEnumerable<Player>, DataError>> GetAllPlayers(int pageNumber, int pageSize);
-    Task<Result<Player, DataError>> GetPlayerById(int id);
+    Task<Result<Player, DataError>> GetPlayerById(Guid id);
     Task<Result<Player, DataError>> AddPlayer(Player player);
 }

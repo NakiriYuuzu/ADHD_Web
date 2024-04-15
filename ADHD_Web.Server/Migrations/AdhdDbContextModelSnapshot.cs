@@ -81,13 +81,16 @@ namespace ADHD_Web.Server.Migrations
 
             modelBuilder.Entity("ADHD_Web.Server.Models.LevelRecord", b =>
                 {
-                    b.HasOne("ADHD_Web.Server.Models.Player", "Player")
-                        .WithMany()
+                    b.HasOne("ADHD_Web.Server.Models.Player", null)
+                        .WithMany("LevelRecords")
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.Navigation("Player");
+            modelBuilder.Entity("ADHD_Web.Server.Models.Player", b =>
+                {
+                    b.Navigation("LevelRecords");
                 });
 #pragma warning restore 612, 618
         }

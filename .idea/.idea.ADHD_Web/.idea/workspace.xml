@@ -10,30 +10,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/Levels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/PlayerLevels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/Players.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/AdhdDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/AdhdDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/IPlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/IPlayersService.cs" afterDir="false" />
+    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/LevelsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/LevelsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/20240415162451_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/20240415162451_InitialCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/AdhdDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/LevelRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Models/LevelRecord.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/LevelService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/LevelService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/PlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/PlayersService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/adhd_web.client.esproj" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/adhd_web.client.esproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/components/Dashboard/Dashboard.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/FooterComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/FooterComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/SidebarComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/SidebarComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/headers/Subheader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/headers/Subheader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/a_main/dashboards.vue" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +48,7 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -166,16 +153,29 @@
       <updated>1713167251527</updated>
       <workItem from="1713167252606" duration="1569000" />
       <workItem from="1713184024045" duration="14798000" />
-      <workItem from="1713199928107" duration="380000" />
+      <workItem from="1713199928107" duration="1719000" />
     </task>
+    <task id="LOCAL-00001" summary="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
+      <option name="closed" value="true" />
+      <created>1713200480369</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713200480369</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Version: 0.0.1-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;&#10;Features:&#10;1. HopeUI.&#10;&#10;BugsFix:&#10;NAN" />
+    <MESSAGE value="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
