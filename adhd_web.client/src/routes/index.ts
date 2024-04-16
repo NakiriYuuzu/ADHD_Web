@@ -7,6 +7,12 @@ const defaultChildRoutes = (prefix: string) => [
         meta: { auth: true, name: 'Home', isBanner: true },
         // component: () => import('@/views/dashboards/IndexPage.vue')
         component: () => import('@/presentations/dashboards/Dashboard.vue')
+    },
+    {
+        path: 'players',
+        name: prefix + '.players',
+        meta: { auth: true, name: 'Players', isBanner: true },
+        component: () => import('@/presentations/players/PlayerData.vue')
     }
 ]
 

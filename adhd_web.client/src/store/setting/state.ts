@@ -32,6 +32,9 @@ export const initialState = {
       value: 'sidebar-white'
     },
     sidebar_type: {
+      target: '[data-toggle="main-sidebar"]',
+      choices: ['sidebar-hover', 'sidebar-mini', 'sidebar-soft'],
+      type: 'layout_design',
       value: []
     },
     sidebar_menu_style: {

@@ -32,6 +32,7 @@ export default {
     setup() {
         const store = useStore()
         const themeSchemeDirection = computed(() => store.getters['setting/theme_scheme_direction'])
+        const sidebarType = computed(() => store.getters['setting/sidebar_type'])
         const fullScreen = ref(false)
         const isHidden = ref(false)
 
