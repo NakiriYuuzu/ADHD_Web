@@ -4,6 +4,8 @@
             <side-menu title="Home" :static-item="true"></side-menu>
             <side-menu isTag="router-link" title="Dashboard" icon="view-grid" icon-type="solid"
                        :route="{ to: 'default.dashboard' }"></side-menu>
+            <side-menu isTag="router-link" title="Players" icon="user" icon-type="solid"
+                       :route="{ to: 'default.players' }"></side-menu>
         </ul>
     </default-sidebar>
 </template>

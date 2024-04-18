@@ -46,7 +46,7 @@
   max-width: 100%;
   pointer-events: none;
 
-  > :not(:last-child) {
+  > :not(:first-child) {
     margin-bottom: var(--#{$prefix}toast-spacing);
   }
 }

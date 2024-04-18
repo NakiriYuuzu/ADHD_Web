@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { useStore } from 'vuex'
-import { type Toast } from '@/models/Toast'
+import { type Toast } from '@/modules/Toast'
 
 const store = useStore()
 const toasts = ref<Array<Toast>>([])
@@ -41,3 +41,10 @@ const closeToast = (id: number) => {
     store.dispatch('removeToastAction', id)
 }
 </script>
+
+<style scoped>
+.toast-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+</style>

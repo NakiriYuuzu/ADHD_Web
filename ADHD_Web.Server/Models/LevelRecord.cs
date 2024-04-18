@@ -6,7 +6,7 @@ public class LevelRecord
     public Guid PlayerId { get; set; }
     public int LevelNumber { get; set; }
     public string Difficulty { get; set; } = "normal";
-    public DateTime StartTime { get; set; }
-    public DateTime EndTime { get; set; }
+    public int Score { get; set; }
+    public int Time { get; set; }
     public DateTime CreatedAt { get; internal set; }
 }

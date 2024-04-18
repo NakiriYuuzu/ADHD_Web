@@ -12,5 +12,5 @@ public class Player
     public int Age { get; set; }
     public string Gender { get; set; }
     public DateTime CreatedAt { get; internal set; }
-    public List<LevelRecord> LevelRecords { get; set; } = new();
+    public List<LevelRecord> LevelRecords { get; internal set; } = new();
 }

@@ -1289,7 +1289,7 @@
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="512" parent="1" name="ADHD_DB">
-      <LastIntrospectionLocalTimestamp>2024-04-15.18:38:33</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-04-18.11:23:30</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="513" parent="1" name="mariadb.sys">
@@ -1343,18 +1343,20 @@
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="527" parent="520" name="StartTime">
+    <column id="527" parent="520" name="CreatedAt">
       <DasType>datetime(6)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="528" parent="520" name="EndTime">
-      <DasType>datetime(6)|0s</DasType>
+    <column id="528" parent="520" name="Score">
+      <DasType>int(11)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="529" parent="520" name="CreatedAt">
-      <DasType>datetime(6)|0s</DasType>
+    <column id="529" parent="520" name="Time">
+      <DasType>int(11)|0s</DasType>
+      <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>

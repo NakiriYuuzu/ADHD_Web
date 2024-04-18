@@ -5,8 +5,7 @@ public static class PlayerValidator
     public static readonly string[] GenderList =
     [
         "male",
-        "female",
-        "other"
+        "female"
     ];
 
     public static bool VerifyAge(int age)

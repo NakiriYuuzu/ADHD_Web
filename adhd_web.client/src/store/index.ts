@@ -1,6 +1,6 @@
 import {createStore, createLogger} from 'vuex'
 import setting from './setting'
-import {type Toast} from "@/models/Toast"
+import {type Toast} from "@/modules/Toast"
 
 const debug = process.env.NODE_ENV !== 'production'
 export default createStore({
@@ -42,12 +42,15 @@ export default createStore({
                 message: toast.message,
                 color: toast.color,
                 date: Date.now(),
-                displayTime: 'Just Now'
+                duration: toast.duration
             }
             commit('setToastCommit', newToast)
+            
+            if (toast.duration === 0) return
+            
             setTimeout(() => {
                 commit('removeToastCommit', newToast.id)
-            }, 5000) // 5 seconds
+            }, newToast.duration)
         },
         removeToastAction({commit}, toastId: number) {
             commit('removeToastCommit', toastId)

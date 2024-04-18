@@ -16,3 +16,10 @@ cd ~/.aspnet/https
 openssl genrsa -out "adhd_web.client.key" 2048
 openssl req -new -x509 -key "adhd_web.client.key" -out "adhd_web.client.pem" -days 365 -subj "/TW=localhost"
 ```
+
+### .NET Core
+#### Model to DB
+```
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```

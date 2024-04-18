@@ -12,10 +12,9 @@
                         <data-table id="playersTable" :data="rowsData" :columns="columnsData"
                                     @rowClicked="rowOnClicked"/>
                     </div>
-                    <div v-else-if="result.type === ResultType.FAILURE">
-                        Error: {{ result.error }}
+                    <div class="table-responsive border-bottom my-3" v-else>
+                        <error-display @refresh-parent="fetchData"/>
                     </div>
-                    <div v-else></div>
                 </div>
             </div>
         </div>
@@ -30,7 +29,8 @@
 
 <script setup lang="ts">
 import {ref, watchEffect, onMounted} from 'vue'
-import {useStore} from 'vuex'
+import {makeToast, ToastColor} from "@/modules/Toast"
+import {setLoading} from "@/modules/Loading"
 import {type Player} from '@/models/Player'
 import {type Result, ResultType} from "@/domains/handlers/Result"
 
@@ -38,8 +38,8 @@ import {type Result, ResultType} from "@/domains/handlers/Result"
 import 'datatables.net-bs5'
 import DataTable from "@/components/DataTable.vue"
 import ModalComponent from "@/presentations/components/modals/ModalComponent.vue"
+import ErrorDisplay from "@/presentations/components/errors/ErrorDisplay.vue"
 
-const store = useStore()
 const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string>)
 let columnsData = ref<{ title: string; data: string; }[]>([])
 let rowsData = ref([])
@@ -47,8 +47,23 @@ let rowsData = ref([])
 const modal = ref(false)
 
 watchEffect(() => {
-    if (result.value.type === ResultType.LOADING) store.dispatch('updateLoadingAction', true)
-    else store.dispatch('updateLoadingAction', false)
+    switch (result.value.type) {
+        case ResultType.SUCCESS:
+            setLoading(false)
+            break
+        case ResultType.FAILURE:
+            setLoading(false)
+            makeToast(`Error`, `${result.value.error}`, ToastColor.Error)
+            result.value.error = ''
+            result.value = {type: ResultType.IDLE}
+            break
+        case ResultType.LOADING:
+            setLoading(true)
+            break
+        case ResultType.IDLE:
+            setLoading(false)
+            break
+    }
 })
 
 onMounted(() => {
@@ -84,7 +99,6 @@ const fetchData = async () => {
 const rowOnClicked = (rowData: Player) => {
     console.log(rowData)
 }
-
 </script>
 
 <style scoped>

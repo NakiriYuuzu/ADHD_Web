@@ -1,6 +1,18 @@
+type LevelRecord = {
+    id: string,
+    playerId: string,
+    levelNumber: number,
+    difficulty: string,
+    score: number,
+    time: number,
+    createdAt: string
+}
+
 export type Player = {
-    playerId: number,
+    playerId: string,
     name: string,
     age: number,
-    gender: string
+    gender: string,
+    createdAt: string,
+    levelRecords: LevelRecord[]
 }

@@ -29,6 +29,7 @@
     "bootstrap-vue-3": "^0.2.14",
     "core-js": "^3.6.5",
     "datatables.net-bs5": "^1.11.2",
+    "date-fns": "^3.6.0",
     "fslightbox-vue": "^2.1.1-2",
     "jquery": "^3.6.4",
     "js-circle-progress": "^0.2.4",

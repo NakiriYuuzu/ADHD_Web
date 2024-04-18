@@ -3,12 +3,12 @@
     <main class="main-content">
         <div :class="`position-relative  ${isBanner ? 'iq-banner ' + bannerStyle : ''}`">
             <header-component></header-component>
-                <template v-if="isBanner">
+            <toast-component></toast-component>
+            <template v-if="isBanner">
                     <sub-header></sub-header>
                 </template>
             <loading-component :is-loading="isLoading"></loading-component>
         </div>
-        <toast-component></toast-component>
         <main-content-component :hidden="isLoading">
             <router-view></router-view>
         </main-content-component>
@@ -24,7 +24,7 @@ import HeaderComponent from "@/presentations/components/headers/HeaderComponent.
 import SubHeader from "@/presentations/components/headers/Subheader.vue"
 import FooterComponent from "@/presentations/components/FooterComponent.vue"
 
-import {computed, onMounted} from 'vue'
+import {computed} from 'vue'
 import {useRoute} from 'vue-router'
 import {useStore} from 'vuex'
 import ToastComponent from "@/presentations/components/toasts/ToastComponent.vue";
@@ -34,11 +34,4 @@ const store = useStore()
 const isBanner = computed(() => route.meta.isBanner)
 const bannerStyle = computed(() => store.getters['setting/header_banner'])
 const isLoading = computed(() => store.getters.isLoading)
-
-onMounted(() => {
-    store.dispatch('updateLoadingAction', true)
-    setTimeout(() => {
-        store.dispatch('updateLoadingAction', false)
-    }, 300)
-})
 </script>
