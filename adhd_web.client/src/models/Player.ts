@@ -1,4 +1,4 @@
-type LevelRecord = {
+export type LevelRecord = {
     id: string,
     playerId: string,
     levelNumber: number,

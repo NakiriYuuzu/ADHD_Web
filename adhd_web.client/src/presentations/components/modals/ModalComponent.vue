@@ -8,7 +8,7 @@
         leave-to-class="opacity-0 scale-95">
         <div v-if="isVisible" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity">
             <!-- Modal content -->
-            <div class="bg-gray-800 p-3 rounded-lg shadow-lg z-10 min-w-[300px] min-h-[200px] flex flex-col justify-center items-center" style="color: #ecf0f1;">
+            <div class="bg-modal-bg p-3 rounded-lg shadow-lg z-10 min-w-[300px] min-h-[200px] flex flex-col justify-center items-center" style="color: #ecf0f1;">
                 <!-- Header -->
                 <div class="flex justify-between items-center mb-3 w-full">
                     <h3 class="text-lg font-bold">{{ title }}</h3>
@@ -26,7 +26,7 @@
                     <slot name="footer">
                         <button
                             @click="closeModal"
-                            class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-sm px-4 py-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1"
+                            class="bg-primary text-white active:bg-blue-600 font-bold uppercase text-sm px-4 py-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1"
                             type="button"
                             style="transition: all 0.15s ease 0s;">
                             Close

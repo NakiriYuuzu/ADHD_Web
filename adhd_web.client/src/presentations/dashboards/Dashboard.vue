@@ -3,11 +3,11 @@
         <div class="col-md-12 col-lg-8">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card" v-if="result.type === ResultType.SUCCESS">
                         <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
                             <div class="header-title">
                                 <h4 class="card-title">Gender Chart</h4>
-                                <p class="mb-0"></p>
+                                <p class="mb-0">Total Male: {{countPlayersGender(0)}} Total Female: {{countPlayersGender(1)}}</p>
                             </div>
                             <div class="d-flex align-items-center align-self-center">
                                 <div class="d-flex align-items-center text-primary">
@@ -51,26 +51,37 @@
                                        :series="genderChart.series"/>
                         </div>
                     </div>
+                    <div class="card" v-else>
+                        <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                            <div class="header-title">
+                                <h4 class="card-title">Gender Chart</h4>
+                                <p class="mb-0"></p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <error-display @refresh-parent="fetchData"/>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between flex-wrap">
                             <div class="header-title">
-                                <h4 class="card-title">Conversions</h4>
+                                <h4 class="card-title">Level Records Chart</h4>
                             </div>
                             <div class="dropdown">
                                 <a href="#" class="text-secondary dropdown-toggle" id="dropdownMenuButton3"
-                                   data-bs-toggle="dropdown" aria-expanded="false"> This Week </a>
+                                   data-bs-toggle="dropdown" aria-expanded="false"> This {{levelPeriod}} </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton3">
-                                    <li><a class="dropdown-item" href="#">This Week</a></li>
-                                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                    <li><a class="dropdown-item" href="#" @click="levelPeriod = 'Week'">This Week</a></li>
+                                    <li><a class="dropdown-item" href="#" @click="levelPeriod = 'Month'">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#" @click="levelPeriod = 'Year'">This Year</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="card-body">
                             <apexchart :height="256" type="bar" class="dactivity1" id="dactivity1"
-                                       :options="conversionChart.options" :series="conversionChart.series"/>
+                                       :options="levelChart.options" :series="levelChart.series"/>
                         </div>
                     </div>
                 </div>
@@ -159,7 +170,7 @@
 import {setLoading} from "@/modules/Loading"
 import {makeToast, ToastColor} from "@/modules/Toast"
 import {formatDate, getStartOfPeriod} from "@/domains/utils/DateUtil"
-import type {Player} from "@/models/Player"
+import type {LevelRecord, Player} from "@/models/Player"
 import {type Result, ResultType} from "@/domains/handlers/Result"
 import {onMounted, watchEffect, ref} from 'vue'
 
@@ -194,25 +205,25 @@ const activityPlayers = () => {
     return playersData.value.slice(0, 6).reverse()
 }
 
-const countPlayersPerPeriod = (players: Player[], startOfPeriod: Date, period: string) => {
-    let periodLength
-    let categories = []
+const countPeriodLength = (startOfPeriod: Date, period: string) => {
     switch(period) {
         case 'week':
-            periodLength = 7
-            categories = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            break
+            categories.value = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            return 7
         case 'month':
-            periodLength = new Date(startOfPeriod.getFullYear(), startOfPeriod.getMonth() + 1, 0).getDate()
-            categories = Array.from({length: periodLength}, (_, i) => i + 1)
-            break
+            const periodLength = new Date(startOfPeriod.getFullYear(), startOfPeriod.getMonth() + 1, 0).getDate()
+            categories.value = Array.from({length: periodLength}, (_, i) => i + 1)
+            return periodLength
         case 'year':
-            periodLength = 12
-            categories = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            break
+            categories.value = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            return 12
         default:
             throw new Error(`Invalid period: ${period}`)
     }
+}
+
+const countGenderPeriod = (players: Player[], startOfPeriod: Date, period: string) => {
+    const periodLength = countPeriodLength(startOfPeriod, period)
     const maleCounts = Array(periodLength).fill(0)
     const femaleCounts = Array(periodLength).fill(0)
     players.forEach(player => {
@@ -230,8 +241,29 @@ const countPlayersPerPeriod = (players: Player[], startOfPeriod: Date, period: s
     })
     return {
         male: maleCounts,
-        female: femaleCounts,
-        categories: categories
+        female: femaleCounts
+    }
+}
+
+const countLevelPeriod = (levels: LevelRecord[], startOfPeriod: Date, period: string) => {
+    const periodLength = countPeriodLength(startOfPeriod, period)
+    const levelCounts = Array(4).fill(0).map(() => Array(periodLength).fill(0))
+
+    levels.forEach(level => {
+        const createdAt = new Date(level.createdAt)
+        if (createdAt >= startOfPeriod) {
+            const index = period === 'week' ? createdAt.getDay() : period === 'month' ? createdAt.getDate() - 1 : createdAt.getMonth()
+            if (index >= 0 && index < periodLength && level.levelNumber >= 0 && level.levelNumber < 4) {
+                levelCounts[level.levelNumber][index]++
+            }
+        }
+    })
+
+    return {
+        levelOne: levelCounts[0],
+        levelTwo: levelCounts[1],
+        levelThree: levelCounts[2],
+        levelFour: levelCounts[3]
     }
 }
 
@@ -241,20 +273,47 @@ const updateGenderChart = () => {
         const period = genderPeriod.value.toLowerCase()
         const startOfPeriod = getStartOfPeriod(now, period)
         const timePeriodPlayers = playersData.value.filter(player => new Date(player.createdAt) >= startOfPeriod)
-        const counts = countPlayersPerPeriod(timePeriodPlayers, startOfPeriod, period)
+        const counts = countGenderPeriod(timePeriodPlayers, startOfPeriod, period)
         genderChart.value.series[0].data = counts.male
         genderChart.value.series[1].data = counts.female
-        genderChart.value.options.xaxis.categories.splice(0, genderChart.value.options.xaxis.categories.length, ...counts.categories)
-        console.log(genderChart.value)
+        genderChart.value.options.xaxis.categories.splice(0, genderChart.value.options.xaxis.categories.length, ...categories.value)
+    } catch (error: any) {
+        result.value = {type: ResultType.FAILURE, error: error.message}
+    }
+}
+
+const countPlayersGender = (gender: number) => {
+    // 0 = male | 1 = female
+    const male = genderChart.value.series[0].data.reduce((a: number, b: number) => a + b, 0)
+    const female = genderChart.value.series[1].data.reduce((a: number, b: number) => a + b, 0)
+    return (gender === 0) ? male : female
+}
+
+const updateLevelChart = () => {
+    try {
+        const now = new Date()
+        const period = levelPeriod.value.toLowerCase()
+        const startOfPeriod = getStartOfPeriod(now, period)
+        levelsData.value = playersData.value.map(player => player.levelRecords).flat()
+        const timePeriodPlayers = levelsData.value.filter(level => new Date(level.createdAt) >= startOfPeriod)
+        const counts = countLevelPeriod(timePeriodPlayers, startOfPeriod, period)
+        levelChart.value.series[0].data = counts.levelOne
+        levelChart.value.series[1].data = counts.levelTwo
+        levelChart.value.series[2].data = counts.levelThree
+        levelChart.value.series[3].data = counts.levelFour
+        levelChart.value.options.xaxis.categories.splice(0, levelChart.value.options.xaxis.categories.length, ...categories.value)
     } catch (error: any) {
         result.value = {type: ResultType.FAILURE, error: error.message}
     }
 }
 
 // variables
-const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string>)
+const result = ref({type: ResultType.LOADING, error: ''} as Result<Player[], string>)
 const playersData = ref([] as Player[])
+const levelsData = ref([] as LevelRecord[]) //levelsData.value = playersData.value.map(player => player.levelRecords).flat()
+const categories = ref([] as any)
 const genderPeriod = ref('Week')
+const levelPeriod = ref('Week')
 
 // chart Data.
 const genderChart = ref({
@@ -282,7 +341,7 @@ const genderChart = ref({
         },
         colors: ['#3a57e8', '#079aa2'],
         dataLabels: {
-            enabled: true
+            enabled: false
         },
         stroke: {
             curve: 'smooth',
@@ -339,16 +398,24 @@ const genderChart = ref({
         }
     }
 })
-const conversionChart = ref({
+const levelChart = ref({
     series: [
         {
-            name: 'Successful deals',
-            data: [30, 50, 35, 60, 40, 60, 60, 30, 50, 35]
-        },
+            name: 'level 1',
+            data: []
+        } as any,
         {
-            name: 'Failed deals',
-            data: [40, 50, 55, 50, 30, 80, 30, 40, 50, 55]
-        }
+            name: 'level 2',
+            data: []
+        } as any,
+        {
+            name: 'level 3',
+            data: []
+        } as any,
+        {
+            name: 'level 4',
+            data: []
+        } as any
     ],
     options: {
         chart: {
@@ -359,7 +426,7 @@ const conversionChart = ref({
                 show: false
             }
         },
-        colors: ['#3a57e8', '#4bc7d2'],
+        colors: ['#3a57e8', '#4bc7d2', '#f16a1b', '#1aa053'],
         plotOptions: {
             bar: {
                 horizontal: false,
@@ -380,7 +447,7 @@ const conversionChart = ref({
             colors: ['transparent']
         },
         xaxis: {
-            categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'M', 'T', 'W'],
+            categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as any,
             labels: {
                 minHeight: 20,
                 maxHeight: 20,
@@ -407,7 +474,7 @@ const conversionChart = ref({
         tooltip: {
             y: {
                 formatter: function (val: any) {
-                    return '$ ' + val + ' thousands'
+                    return val.toString()
                 }
             }
         }
@@ -420,10 +487,10 @@ watchEffect(() => {
             setLoading(false)
             playersData.value = result.value.data
             updateGenderChart()
+            updateLevelChart()
             break
         case ResultType.FAILURE:
             setLoading(false)
-            console.log(`Error: ${result.value.error}`)
             makeToast(`Error`, `${result.value.error}`, ToastColor.Error)
             result.value.error = ''
             result.value = {type: ResultType.IDLE}

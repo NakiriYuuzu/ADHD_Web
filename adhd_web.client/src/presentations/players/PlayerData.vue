@@ -22,7 +22,7 @@
     <button @click="modal = true" class="btn btn-primary">Launch demo modal</button>
     <modal-component v-model="modal" title="Modal title">
         <template #body>
-            <p>NAN</p>
+
         </template>
     </modal-component>
 </template>
@@ -39,36 +39,6 @@ import 'datatables.net-bs5'
 import DataTable from "@/components/DataTable.vue"
 import ModalComponent from "@/presentations/components/modals/ModalComponent.vue"
 import ErrorDisplay from "@/presentations/components/errors/ErrorDisplay.vue"
-
-const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string>)
-let columnsData = ref<{ title: string; data: string; }[]>([])
-let rowsData = ref([])
-
-const modal = ref(false)
-
-watchEffect(() => {
-    switch (result.value.type) {
-        case ResultType.SUCCESS:
-            setLoading(false)
-            break
-        case ResultType.FAILURE:
-            setLoading(false)
-            makeToast(`Error`, `${result.value.error}`, ToastColor.Error)
-            result.value.error = ''
-            result.value = {type: ResultType.IDLE}
-            break
-        case ResultType.LOADING:
-            setLoading(true)
-            break
-        case ResultType.IDLE:
-            setLoading(false)
-            break
-    }
-})
-
-onMounted(() => {
-    fetchData()
-})
 
 const fetchData = async () => {
     result.value = {type: ResultType.LOADING}
@@ -97,8 +67,111 @@ const fetchData = async () => {
 }
 
 const rowOnClicked = (rowData: Player) => {
-    console.log(rowData)
+    modal.value = true
 }
+
+const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string>)
+let columnsData = ref<{ title: string; data: string; }[]>([])
+let rowsData = ref([])
+const modal = ref(false)
+const conversionChart = ref({
+    series: [
+        {
+            name: 'Successful deals',
+            data: [30, 50, 35, 60, 40, 60, 60, 30, 50, 35]
+        },
+        {
+            name: 'Failed deals',
+            data: [40, 50, 55, 50, 30, 80, 30, 40, 50, 55]
+        }
+    ],
+    options: {
+        chart: {
+            type: 'bar',
+            height: 256,
+            stacked: true,
+            toolbar: {
+                show: false
+            }
+        },
+        colors: ['#3a57e8', '#4bc7d2'],
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '28%',
+                endingShape: 'rounded',
+                borderRadius: 5
+            }
+        },
+        legend: {
+            show: false
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        xaxis: {
+            categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'M', 'T', 'W'],
+            labels: {
+                minHeight: 20,
+                maxHeight: 20,
+                style: {
+                    colors: '#8A92A6'
+                }
+            }
+        },
+        yaxis: {
+            title: {
+                text: ''
+            },
+            labels: {
+                minWidth: 19,
+                maxWidth: 19,
+                style: {
+                    colors: '#8A92A6'
+                }
+            }
+        },
+        fill: {
+            opacity: 1
+        },
+        tooltip: {
+            y: {
+                formatter: function (val: any) {
+                    return '$ ' + val + ' thousands'
+                }
+            }
+        }
+    }
+})
+
+watchEffect(() => {
+    switch (result.value.type) {
+        case ResultType.SUCCESS:
+            setLoading(false)
+            break
+        case ResultType.FAILURE:
+            setLoading(false)
+            makeToast(`Error`, `${result.value.error}`, ToastColor.Error)
+            result.value.error = ''
+            result.value = {type: ResultType.IDLE}
+            break
+        case ResultType.LOADING:
+            setLoading(true)
+            break
+        case ResultType.IDLE:
+            setLoading(false)
+            break
+    }
+})
+
+onMounted(() => {
+    fetchData()
+})
 </script>
 
 <style scoped>
