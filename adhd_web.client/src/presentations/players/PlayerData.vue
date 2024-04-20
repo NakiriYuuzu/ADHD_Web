@@ -19,7 +19,6 @@
             </div>
         </div>
     </div>
-    <button @click="modal = true" class="btn btn-primary">Launch demo modal</button>
     <modal-component v-model="modal" title="Modal title">
         <template #body>
 
@@ -54,7 +53,7 @@ const fetchData = async () => {
                         data: key
                     })) : columnsData.value
                     // Rework data.
-                    columnsData.value = columnsData.value.slice(0, -2)
+                    columnsData.value = columnsData.value.slice(1, -1)
                     rowsData = response.data
                 }
             } else {
@@ -74,80 +73,6 @@ const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string
 let columnsData = ref<{ title: string; data: string; }[]>([])
 let rowsData = ref([])
 const modal = ref(false)
-const conversionChart = ref({
-    series: [
-        {
-            name: 'Successful deals',
-            data: [30, 50, 35, 60, 40, 60, 60, 30, 50, 35]
-        },
-        {
-            name: 'Failed deals',
-            data: [40, 50, 55, 50, 30, 80, 30, 40, 50, 55]
-        }
-    ],
-    options: {
-        chart: {
-            type: 'bar',
-            height: 256,
-            stacked: true,
-            toolbar: {
-                show: false
-            }
-        },
-        colors: ['#3a57e8', '#4bc7d2'],
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '28%',
-                endingShape: 'rounded',
-                borderRadius: 5
-            }
-        },
-        legend: {
-            show: false
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            show: true,
-            width: 2,
-            colors: ['transparent']
-        },
-        xaxis: {
-            categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'M', 'T', 'W'],
-            labels: {
-                minHeight: 20,
-                maxHeight: 20,
-                style: {
-                    colors: '#8A92A6'
-                }
-            }
-        },
-        yaxis: {
-            title: {
-                text: ''
-            },
-            labels: {
-                minWidth: 19,
-                maxWidth: 19,
-                style: {
-                    colors: '#8A92A6'
-                }
-            }
-        },
-        fill: {
-            opacity: 1
-        },
-        tooltip: {
-            y: {
-                formatter: function (val: any) {
-                    return '$ ' + val + ' thousands'
-                }
-            }
-        }
-    }
-})
 
 watchEffect(() => {
     switch (result.value.type) {
