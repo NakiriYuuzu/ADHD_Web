@@ -19,19 +19,93 @@
             </div>
         </div>
     </div>
-    <button @click="modal = true" class="btn btn-primary">Launch demo modal</button>
-    <modal-component v-model="modal" title="Modal title">
+    <modal-component v-model="modal" :title="`Player ${playerChart.series[0].name} Status`">
         <template #body>
-
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card" v-if="result.type === ResultType.SUCCESS">
+                                <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                                    <div class="header-title">
+                                        <h4 class="card-title">Player Status Chart</h4>
+                                    </div>
+                                    <div class="invisible d-flex align-items-center align-self-center">
+                                        <div class="d-flex align-items-center ms-3 text-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                                 fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="ms-2">
+                                                <span class="text-secondary">Level 01</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center ms-3 text-info">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                                 fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="ms-2">
+                                                <span class="text-secondary">Level 02</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center ms-3 text-warning">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                                 fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="ms-2">
+                                                <span class="text-secondary">Level 03</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center ms-3 text-success">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                                 fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                            <div class="ms-2">
+                                                <span class="text-secondary">Level 04</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <apexchart :height="256" type="area" id="d-main" :options="playerChart.options"
+                                               :series="playerChart.series"/>
+                                </div>
+                            </div>
+                            <div class="card" v-else>
+                                <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                                    <div class="header-title">
+                                        <h4 class="card-title">Gender Chart</h4>
+                                        <p class="mb-0"></p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <error-display @refresh-parent="fetchData"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </template>
     </modal-component>
 </template>
 
 <script setup lang="ts">
-import {ref, watchEffect, onMounted} from 'vue'
+import {onMounted, ref, watchEffect} from 'vue'
 import {makeToast, ToastColor} from "@/modules/Toast"
 import {setLoading} from "@/modules/Loading"
-import {type Player} from '@/models/Player'
+import {type LevelRecord, type Player} from '@/models/Player'
 import {type Result, ResultType} from "@/domains/handlers/Result"
 
 // DataTable & Components
@@ -39,6 +113,7 @@ import 'datatables.net-bs5'
 import DataTable from "@/components/DataTable.vue"
 import ModalComponent from "@/presentations/components/modals/ModalComponent.vue"
 import ErrorDisplay from "@/presentations/components/errors/ErrorDisplay.vue"
+import {formatDate} from "@/domains/utils/DateUtil";
 
 const fetchData = async () => {
     result.value = {type: ResultType.LOADING}
@@ -51,10 +126,25 @@ const fetchData = async () => {
                     result.value = {type: ResultType.SUCCESS, data: response.data}
                     columnsData.value = columnsData.value.length === 0 ? Object.keys(response.data[0]).map(key => ({
                         title: key,
-                        data: key
+                        data: key,
+                        render: function (data: any) {
+                            switch (key) {
+                                case 'createdAt':
+                                    return formatDate(data)
+                                case 'levelRecords':
+                                    const level = calculateProgress(data)
+                                    return `
+                                    <div class="mb-2 d-flex align-items-center">
+                                        <h6>${level}%</h6>
+                                    </div>
+                                    <div class="shadow-none progress bg-soft-primary w-100" style="height: 4px">
+                                        <div class="progress-bar ${level === 100 ? 'bg-success' : level > 50 ? 'bg-primary' : 'bg-warning'}" data-toggle="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: ${level}%; transition: width 2s ease 0s"></div>
+                                    </div>`
+                                default:
+                                    return data
+                            }
+                        }
                     })) : columnsData.value
-                    // Rework data.
-                    columnsData.value = columnsData.value.slice(0, -2)
                     rowsData = response.data
                 }
             } else {
@@ -66,83 +156,101 @@ const fetchData = async () => {
         })
 }
 
-const rowOnClicked = (rowData: Player) => {
+const rowOnClicked = (rowData: any) => {
+    if (rowData === undefined) return
+    playerChart.value.series[0].name = rowData.name
+    playerChart.value.series[0].data = rowData.levelRecords.map((record: LevelRecord) => record.time)
     modal.value = true
 }
 
+const calculateProgress = (data: LevelRecord[]): number => {
+    if (data.length === 0) return 0
+    const levels = data.map(record => record.levelNumber).length
+    return (levels / 4) * 100
+}
+
 const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string>)
-let columnsData = ref<{ title: string; data: string; }[]>([])
+let columnsData = ref<{ title: string; data: string; render: Function }[]>([])
 let rowsData = ref([])
 const modal = ref(false)
-const conversionChart = ref({
+const playerChart = ref({
     series: [
         {
-            name: 'Successful deals',
-            data: [30, 50, 35, 60, 40, 60, 60, 30, 50, 35]
-        },
-        {
-            name: 'Failed deals',
-            data: [40, 50, 55, 50, 30, 80, 30, 40, 50, 55]
-        }
+            name: 'None',
+            data: []
+        } as any
     ],
     options: {
         chart: {
-            type: 'bar',
+            fontFamily: '"Inter", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
             height: 256,
-            stacked: true,
+            type: 'area',
             toolbar: {
-                show: false
+                show: true
+            },
+            sparkline: {
+                enabled: false
             }
         },
-        colors: ['#3a57e8', '#4bc7d2'],
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '28%',
-                endingShape: 'rounded',
-                borderRadius: 5
+        colors: ['#3a57e8', '#079aa2', '#f16a1b', '#1aa053'],
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3
+        },
+        yaxis: {
+            show: true,
+            labels: {
+                show: true,
+                minWidth: 19,
+                maxWidth: 19,
+                style: {
+                    colors: '#8A92A6'
+                },
+                offsetX: -5
             }
         },
         legend: {
             show: false
         },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            show: true,
-            width: 2,
-            colors: ['transparent']
-        },
         xaxis: {
-            categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'M', 'T', 'W'],
             labels: {
-                minHeight: 20,
-                maxHeight: 20,
+                minHeight: 22,
+                maxHeight: 22,
+                show: true,
                 style: {
                     colors: '#8A92A6'
                 }
-            }
-        },
-        yaxis: {
-            title: {
-                text: ''
             },
-            labels: {
-                minWidth: 19,
-                maxWidth: 19,
-                style: {
-                    colors: '#8A92A6'
-                }
-            }
+            lines: {
+                show: true // or just here to disable only x-axis grids
+            },
+            categories: ['Lv01', 'Lv02', 'Lv03', 'Lv04'] as any
+        },
+        grid: {
+            show: false
         },
         fill: {
-            opacity: 1
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: 'vertical',
+                shadeIntensity: 0,
+                gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+                inverseColors: true,
+                opacityFrom: 0.4,
+                opacityTo: 0.1,
+                stops: [0, 50, 80],
+                colors: ['#3a57e8', '#4bc7d2']
+            }
         },
         tooltip: {
+            enabled: true,
             y: {
                 formatter: function (val: any) {
-                    return '$ ' + val + ' thousands'
+                    return val + ' seconds'
                 }
             }
         }
@@ -176,4 +284,7 @@ onMounted(() => {
 
 <style scoped>
 @import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
+.invisible {
+    opacity: 0;
+}
 </style>

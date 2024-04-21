@@ -64,10 +64,126 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card" v-if="result.type === ResultType.SUCCESS">
+                        <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                            <div class="header-title">
+                                <h4 class="card-title">Gender Time Spent</h4>
+                                <p class="mb-0"></p>
+                            </div>
+                            <div class="d-flex align-items-center align-self-center">
+                                <div class="d-flex align-items-center text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                         fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="ms-2">
+                                        <span class="text-secondary">Male</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center ms-3 text-info">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                         fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="ms-2">
+                                        <span class="text-secondary">Female</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="dropdown me-3">
+                                    <a href="#" class="text-secondary dropdown-toggle" id="dropdownMenuButton21"
+                                       data-bs-toggle="dropdown" aria-expanded="false"> Level {{ genderLevelPeriod === 0 ? 'All' : genderLevelPeriod }} </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton21">
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelPeriod = 0">Level All </a></li>
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelPeriod = 1">Level 1</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelPeriod = 2">Level 2</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelPeriod = 3">Level 3</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown">
+                                    <a href="#" class="text-secondary dropdown-toggle" id="dropdownMenuButton23"
+                                       data-bs-toggle="dropdown" aria-expanded="false"> This {{ genderLevelDatePeriod }} </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton23">
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelDatePeriod = 'Week'">This Week</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelDatePeriod = 'Month'">This Month</a></li>
+                                        <li><a class="dropdown-item" href="#" @click="genderLevelDatePeriod = 'Year'">This Year</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <apexchart :height="256" type="area" id="d-main" :options="genderLevelChart.options"
+                                       :series="genderLevelChart.series"/>
+                        </div>
+                    </div>
+                    <div class="card" v-else>
+                        <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
+                            <div class="header-title">
+                                <h4 class="card-title">Gender Level Chart</h4>
+                                <p class="mb-0"></p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <error-display @refresh-parent="fetchData"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card" v-if="result.type === ResultType.SUCCESS">
                         <div class="card-header d-flex justify-content-between flex-wrap">
                             <div class="header-title">
-                                <h4 class="card-title">Level Records Chart</h4>
+                                <h4 class="card-title">Levels Chart</h4>
+                            </div>
+                            <div class="d-flex align-items-center align-self-center">
+                                <div class="d-flex align-items-center text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                         fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="ms-2">
+                                        <span class="text-secondary">Level 01</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center ms-3 text-info">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                         fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="ms-2">
+                                        <span class="text-secondary">Level 02</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center ms-3 text-warning">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                         fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="ms-2">
+                                        <span class="text-secondary">Level 03</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center ms-3 text-success">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 24 24"
+                                         fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                    <div class="ms-2">
+                                        <span class="text-secondary">Level 04</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="dropdown">
                                 <a href="#" class="text-secondary dropdown-toggle" id="dropdownMenuButton3"
@@ -82,6 +198,16 @@
                         <div class="card-body">
                             <apexchart :height="256" type="bar" class="dactivity1" id="dactivity1"
                                        :options="levelChart.options" :series="levelChart.series"/>
+                        </div>
+                    </div>
+                    <div class="card" v-else>
+                        <div class="card-header d-flex justify-content-between flex-wrap">
+                            <div class="header-title">
+                                <h4 class="card-title">Levels Chart</h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <error-display @refresh-parent="fetchData"/>
                         </div>
                     </div>
                 </div>
@@ -170,7 +296,7 @@
 import {setLoading} from "@/modules/Loading"
 import {makeToast, ToastColor} from "@/modules/Toast"
 import {formatDate, getStartOfPeriod} from "@/domains/utils/DateUtil"
-import type {LevelRecord, Player} from "@/models/Player"
+import {type LevelRecord, type Player} from "@/models/Player"
 import {type Result, ResultType} from "@/domains/handlers/Result"
 import {onMounted, watchEffect, ref} from 'vue'
 
@@ -202,7 +328,7 @@ const todayPlayers = () => {
 }
 
 const activityPlayers = () => {
-    return playersData.value.slice(0, 6).reverse()
+    return playersData.value.slice(0, 12).reverse()
 }
 
 const countPeriodLength = (startOfPeriod: Date, period: string) => {
@@ -222,6 +348,13 @@ const countPeriodLength = (startOfPeriod: Date, period: string) => {
     }
 }
 
+const countPlayersGender = (gender: number) => {
+    // 0 = male | 1 = female
+    const male = genderChart.value.series[0].data.reduce((a: number, b: number) => a + b, 0)
+    const female = genderChart.value.series[1].data.reduce((a: number, b: number) => a + b, 0)
+    return (gender === 0) ? male : female
+}
+
 const countGenderPeriod = (players: Player[], startOfPeriod: Date, period: string) => {
     const periodLength = countPeriodLength(startOfPeriod, period)
     const maleCounts = Array(periodLength).fill(0)
@@ -231,10 +364,47 @@ const countGenderPeriod = (players: Player[], startOfPeriod: Date, period: strin
         if (createdAt >= startOfPeriod) {
             const index = period === 'week' ? createdAt.getDay() : period === 'month' ? createdAt.getDate() - 1 : createdAt.getMonth()
             if (index >= 0 && index < periodLength) {
-                if (player.gender === 'male') {
-                    maleCounts[index]++
-                } else if (player.gender === 'female') {
-                    femaleCounts[index]++
+                switch (player.gender.toLowerCase()) {
+                    case 'male':
+                        maleCounts[index]++
+                        break
+                    case 'female':
+                        femaleCounts[index]++
+                        break
+                }
+            }
+        }
+    })
+    return {
+        male: maleCounts,
+        female: femaleCounts
+    }
+}
+
+const countGenderLevelPeriod = (players: Player[], startOfPeriod: Date, period: string) => {
+    const periodLength = countPeriodLength(startOfPeriod, period)
+    const maleCounts = Array(periodLength).fill(0)
+    const femaleCounts = Array(periodLength).fill(0)
+    players.forEach(player => {
+        const createdAt = new Date(player.createdAt)
+        if (createdAt >= startOfPeriod) {
+            const index = period === 'week' ? createdAt.getDay() : period === 'month' ? createdAt.getDate() - 1 : createdAt.getMonth()
+            if (index >= 0 && index < periodLength) {
+                switch (player.gender.toLowerCase()) {
+                    case 'male':
+                        if (genderLevelPeriod.value === 0) {
+                            maleCounts[index] += player.levelRecords.filter(level => level.time > 0).reduce((a, b) => a + b.time, 0)
+                        } else {
+                            maleCounts[index] += player.levelRecords.filter(level => level.time > 0 && level.levelNumber === genderLevelPeriod.value - 1).reduce((a, b) => a + b.time, 0)
+                        }
+                        break
+                    case 'female':
+                        if (genderLevelPeriod.value === 0) {
+                            femaleCounts[index] += player.levelRecords.filter(level => level.time > 0).reduce((a, b) => a + b.time, 0)
+                        } else {
+                            femaleCounts[index] += player.levelRecords.filter(level => level.time > 0 && level.levelNumber === genderLevelPeriod.value - 1).reduce((a, b) => a + b.time, 0)
+                        }
+                        break
                 }
             }
         }
@@ -282,11 +452,20 @@ const updateGenderChart = () => {
     }
 }
 
-const countPlayersGender = (gender: number) => {
-    // 0 = male | 1 = female
-    const male = genderChart.value.series[0].data.reduce((a: number, b: number) => a + b, 0)
-    const female = genderChart.value.series[1].data.reduce((a: number, b: number) => a + b, 0)
-    return (gender === 0) ? male : female
+const updateGenderLevelChart = () => {
+    try {
+        const now = new Date()
+        const period = genderLevelDatePeriod.value.toLowerCase()
+        const startOfPeriod = getStartOfPeriod(now, period)
+        const timePeriodPlayers = playersData.value.filter(player => new Date(player.createdAt) >= startOfPeriod)
+        const counts = countGenderLevelPeriod(timePeriodPlayers, startOfPeriod, period)
+        console.log(genderLevelChart.value)
+        genderLevelChart.value.series[0].data = counts.male
+        genderLevelChart.value.series[1].data = counts.female
+        genderLevelChart.value.options.xaxis.categories.splice(0, genderChart.value.options.xaxis.categories.length, ...categories.value)
+    } catch (error: any) {
+        result.value = {type: ResultType.FAILURE, error: error.message}
+    }
 }
 
 const updateLevelChart = () => {
@@ -310,9 +489,11 @@ const updateLevelChart = () => {
 // variables
 const result = ref({type: ResultType.LOADING, error: ''} as Result<Player[], string>)
 const playersData = ref([] as Player[])
-const levelsData = ref([] as LevelRecord[]) //levelsData.value = playersData.value.map(player => player.levelRecords).flat()
+const levelsData = ref([] as LevelRecord[])
 const categories = ref([] as any)
 const genderPeriod = ref('Week')
+const genderLevelDatePeriod = ref('Week')
+const genderLevelPeriod = ref(0)
 const levelPeriod = ref('Week')
 
 // chart Data.
@@ -333,7 +514,7 @@ const genderChart = ref({
             height: 256,
             type: 'area',
             toolbar: {
-                show: false
+                show: true
             },
             sparkline: {
                 enabled: false
@@ -372,9 +553,91 @@ const genderChart = ref({
                 }
             },
             lines: {
-                show: false // or just here to disable only x-axis grids
+                show: true // or just here to disable only x-axis grids
             },
             categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as any
+        },
+        grid: {
+            show: false
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shade: 'dark',
+                type: 'vertical',
+                shadeIntensity: 0,
+                gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+                inverseColors: true,
+                opacityFrom: 0.4,
+                opacityTo: 0.1,
+                stops: [0, 50, 80],
+                colors: ['#3a57e8', '#4bc7d2']
+            }
+        },
+        tooltip: {
+            enabled: true
+        }
+    }
+})
+const genderLevelChart = ref({
+    series: [
+        {
+            name: 'male',
+            data: []
+        } as any,
+        {
+            name: 'female',
+            data: []
+        } as any
+    ],
+    options: {
+        chart: {
+            fontFamily: '"Inter", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+            height: 256,
+            type: 'area',
+            toolbar: {
+                show: true
+            },
+            sparkline: {
+                enabled: false
+            }
+        },
+        colors: ['#3a57e8', '#079aa2', '#f16a1b', '#1aa053'],
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 3
+        },
+        yaxis: {
+            show: true,
+            labels: {
+                show: true,
+                minWidth: 19,
+                maxWidth: 19,
+                style: {
+                    colors: '#8A92A6'
+                },
+                offsetX: -5
+            }
+        },
+        legend: {
+            show: false
+        },
+        xaxis: {
+            labels: {
+                minHeight: 22,
+                maxHeight: 22,
+                show: true,
+                style: {
+                    colors: '#8A92A6'
+                }
+            },
+            lines: {
+                show: false // or just here to disable only x-axis grids
+            },
+            categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] as string[]
         },
         grid: {
             show: false
@@ -423,7 +686,7 @@ const levelChart = ref({
             height: 256,
             stacked: true,
             toolbar: {
-                show: false
+                show: true
             }
         },
         colors: ['#3a57e8', '#4bc7d2', '#f16a1b', '#1aa053'],
@@ -487,6 +750,7 @@ watchEffect(() => {
             setLoading(false)
             playersData.value = result.value.data
             updateGenderChart()
+            updateGenderLevelChart()
             updateLevelChart()
             break
         case ResultType.FAILURE:

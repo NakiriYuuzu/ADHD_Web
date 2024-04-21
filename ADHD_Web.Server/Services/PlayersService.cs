@@ -69,7 +69,7 @@ public class PlayersService(AdhdDbContext context, ILogger<PlayersService> logge
     {
         try
         {
-            player.CreatedAt = DateUtils.ToTaipeiTime();
+            player.CreatedAt = Convert.ToDateTime(DateUtils.ToTaipeiTime().ToString("yyyy-M-d dddd HH:mm:ss"));
 
             await context.Players.AddAsync(player);
             await context.SaveChangesAsync();

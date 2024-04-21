@@ -32,19 +32,19 @@ export default {
     props: {
         title: {
             type: String,
-            default: 'Maintenance Mode'
+            default: 'System Dashboard'
         },
         description: {
             type: String,
-            default: 'We are currently in maintenance mode. Please check back later.'
+            default: 'Welcome to the system dashboard. Here you can view all the important information about your system.'
         },
         linkUrl: {
             type: String,
-            default: 'javascript:void(0)'
+            default: '/'
         },
         linkText: {
             type: String,
-            default: 'Back to Home'
+            default: 'Back to Dashboard'
         }
     }
 }
