@@ -10,13 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="Version: 1.1.1&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.">
+    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="Version: 1.1.2&#10;Description:&#10;Dockerized, fix docker-compose.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Added Edit Players.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources/0358a6a4-fd62-40cf-bd23-020fdd68403b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources/0358a6a4-fd62-40cf-bd23-020fdd68403b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/SidebarComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/SidebarComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +75,7 @@
     "Docker.ADHD_Web.Server/Dockerfile.executor": "Run",
     "Docker.docker-compose.yml.app: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.db: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.healthcheck: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.nginx: Compose Deployment.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -104,7 +103,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Docker.ADHD_Web.Server/Dockerfile">
+  <component name="RunManager" selected=".NET Launch Settings Profile.ADHD_Web.Server: http">
     <configuration name="ADHD_Web.Server: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -186,6 +185,20 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.healthcheck: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="healthcheck" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml.nginx: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -212,9 +225,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.healthcheck: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.nginx: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +262,7 @@
       <workItem from="1714365988580" duration="1414000" />
       <workItem from="1714374502732" duration="206000" />
       <workItem from="1714414483132" duration="31000" />
-      <workItem from="1714530479545" duration="25164000" />
+      <workItem from="1714530479545" duration="30814000" />
     </task>
     <task id="LOCAL-00001" summary="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
       <option name="closed" value="true" />
@@ -354,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714545637149</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Version: 1.1.2&#10;Description:&#10;Dockerized, fix docker-compose.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Added Edit Players.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.">
+      <option name="closed" value="true" />
+      <created>1714556772873</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714556772873</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +411,8 @@
     <MESSAGE value="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile." />
     <MESSAGE value="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml." />
     <MESSAGE value="Version: 1.1.1&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.1.1&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem." />
+    <MESSAGE value="Version: 1.1.2&#10;Description:&#10;Dockerized, fix docker-compose.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Added Edit Players.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.1.2&#10;Description:&#10;Dockerized, fix docker-compose.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Added Edit Players.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem." />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

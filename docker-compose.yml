@@ -8,14 +8,14 @@ services:
     ports:
       - "8080:8080"
     healthcheck:
-      test: []
+      test: [ "CMD-SHELL", "find ADHD_Web.Server.dll" ]
       interval: 3s
       timeout: 3s
       retries: 3
     depends_on:
       db:
         condition: service_healthy
-  
+
   nginx:
     image: nginx:latest
     ports:
@@ -43,6 +43,7 @@ services:
       - adhd_network
     volumes:
       - adhd_db:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: [ "CMD-SHELL", "mariadb -u root -pqwer -e \"SHOW DATABASES;\"" ]
       interval: 3s

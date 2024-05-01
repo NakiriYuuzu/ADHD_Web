@@ -22,4 +22,5 @@ openssl req -new -x509 -key "adhd_web.client.key" -out "adhd_web.client.pem" -da
 ```
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+dotnet ef migrations script -o init.sql
 ```
