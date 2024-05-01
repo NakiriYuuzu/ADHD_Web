@@ -1,12 +1,9 @@
 <template>
   <div class="section-block">
-    <pre><code class="language-markup">&#x3C;b-button v-b-popover.hover.top=&#x22;&#x27;Vivamus sagittis lacus vel augue laoreet rutrum faucibus.&#x27;&#x22;&#x3E;Popover on top&#x3C;/b-button&#x3E;
-{{ &#x27; &#x27; }}
-&#x3C;b-button v-b-popover.hover.right=&#x22;&#x27;Vivamus sagittis lacus vel augue laoreet rutrum faucibus.&#x27;&#x22;&#x3E;Popover on end&#x3C;/b-button&#x3E;
-{{ &#x27; &#x27; }}
-&#x3C;b-button v-b-popover.hover.bottom=&#x22;&#x27;Vivamus sagittis lacus vel augue laoreet rutrum faucibus.&#x27;&#x22;&#x3E;Popover on bottom&#x3C;/b-button&#x3E;
-{{ &#x27; &#x27; }}
-&#x3C;b-button v-b-popover.hover.left=&#x22;&#x27;Vivamus sagittis lacus vel augue laoreet rutrum faucibus.&#x27;&#x22;&#x3E;Popover on start&#x3C;/b-button&#x3E;
+    <pre><code class="language-markup"><b-button v-b-popover.hover.top="'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'">Popover on top</b-button>
+<b-button v-b-popover.hover.right="'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'">Popover on end</b-button>
+<b-button v-b-popover.hover.bottom="'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'">Popover on bottom</b-button>
+<b-button v-b-popover.hover.left="'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.'">Popover on start</b-button>
         </code></pre>
   </div>
 </template>

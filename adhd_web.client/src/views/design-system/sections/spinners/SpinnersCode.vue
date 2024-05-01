@@ -1,45 +1,42 @@
 <template>
   <div class="section-block">
-    <pre><code class="language-markup"> &#x3C;div class=&#x22;bd-example&#x22;&#x3E;
-&#x3C;b-spinner variant=&#x22;primary&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;secondary&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;success&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;danger&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;warning&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;info&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;light&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner variant=&#x22;dark&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;/div&#x3E;
-&#x3C;div class=&#x22;bd-example&#x22;&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;primary&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;secondary&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;success&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;danger&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;warning&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;info&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;light&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;b-spinner type=&#x22;grow&#x22; variant=&#x22;dark&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-&#x3C;/div&#x3E;
-&#x3C;div class=&#x22;bd-example&#x22;&#x3E;
-&#x3C;b-button variant=&#x22;primary&#x22; disabled&#x3E;
-  &#x3C;b-spinner small&#x3E;&#x3C;/b-spinner&#x3E;
-  &#x3C;span class=&#x22;visually-hidden&#x22;&#x3E;Loading...&#x3C;/span&#x3E; &#x3C;/b-button
-&#x3E;{{ &#x27; &#x27; }}
-&#x3C;b-button variant=&#x22;primary&#x22; disabled&#x3E;
-  &#x3C;b-spinner small&#x3E;&#x3C;/b-spinner&#x3E;
-  Loading... &#x3C;/b-button
-&#x3E;{{ &#x27; &#x27; }}
+    <pre><code class="language-markup"> <div class="bd-example">
+<b-spinner variant="primary"></b-spinner>
+<b-spinner variant="secondary"></b-spinner>
+<b-spinner variant="success"></b-spinner>
+<b-spinner variant="danger"></b-spinner>
+<b-spinner variant="warning"></b-spinner>
+<b-spinner variant="info"></b-spinner>
+<b-spinner variant="light"></b-spinner>
+<b-spinner variant="dark"></b-spinner>
+</div>
+<div class="bd-example">
+<b-spinner type="grow" variant="primary"></b-spinner>
+<b-spinner type="grow" variant="secondary"></b-spinner>
+<b-spinner type="grow" variant="success"></b-spinner>
+<b-spinner type="grow" variant="danger"></b-spinner>
+<b-spinner type="grow" variant="warning"></b-spinner>
+<b-spinner type="grow" variant="info"></b-spinner>
+<b-spinner type="grow" variant="light"></b-spinner>
+<b-spinner type="grow" variant="dark"></b-spinner>
+</div>
+<div class="bd-example">
+<b-button variant="primary" disabled>
+  <b-spinner small></b-spinner>
+  <span class="visually-hidden">Loading...</span> </b-button>
 
-&#x3C;b-button variant=&#x22;primary&#x22; disabled&#x3E;
-  &#x3C;b-spinner small type=&#x22;grow&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-  &#x3C;span class=&#x22;visually-hidden&#x22;&#x3E;Loading...&#x3C;/span&#x3E; &#x3C;/b-button
-&#x3E;{{ &#x27; &#x27; }}
+<b-button variant="primary" disabled>
+  <b-spinner small></b-spinner>
+  Loading... </b-button>
 
-&#x3C;b-button variant=&#x22;primary&#x22; disabled&#x3E;
-  &#x3C;b-spinner small type=&#x22;grow&#x22;&#x3E;&#x3C;/b-spinner&#x3E;
-  Loading... &#x3C;/b-button
-&#x3E;{{ &#x27; &#x27; }}
-&#x3C;/div&#x3E;
+<b-button variant="primary" disabled>
+  <b-spinner small type="grow"></b-spinner>
+  <span class="visually-hidden">Loading...</span> </b-button>
+
+<b-button variant="primary" disabled>
+  <b-spinner small type="grow"></b-spinner>
+  Loading... </b-button>
+</div>
         </code></pre>
   </div>
 </template>

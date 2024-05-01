@@ -52,6 +52,7 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Player player)
     {
+        if (player.Gender == null) return BadRequest(new {message = "Please provide your gender!"});
         var ageValidator = PlayerValidator.VerifyAge(player.Age);
         var genderValidator = PlayerValidator.VerifyGender(player.Gender);
         if (!ageValidator) return BadRequest(new {message = "Age is invalid."});

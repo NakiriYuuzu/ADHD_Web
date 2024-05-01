@@ -8,9 +8,9 @@ public class Player
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; internal set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int Age { get; set; }
-    public string Gender { get; set; }
+    public string? Gender { get; set; }
     public DateTime CreatedAt { get; internal set; }
     public List<LevelRecord> LevelRecords { get; internal set; } = new();
 }
