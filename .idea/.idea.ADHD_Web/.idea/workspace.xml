@@ -12,10 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/PlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/PlayersService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/modals/ModalComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/components/modals/ModalComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/dashboards/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/dashboards/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/players/PlayerData.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/players/PlayerData.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,35 +63,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.ADHD_Web.Server: http.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.vue&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/yuuzu/HanaokaYuuzu/Server/Dotnet/ADHD_Web/adhd_web.client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.ADHD_Web.Server: http.executor": "Run",
+    "Docker.ADHD_Web.Server/Dockerfile.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.vue",
+    "ts.external.directory.path": "/Users/yuuzu/HanaokaYuuzu/Server/Dotnet/ADHD_Web/adhd_web.client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/yuuzu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/yuuzu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/yuuzu/Library/Application Support/Symbols/src&quot;
+    "rider.external.source.directories": [
+      "/Users/yuuzu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
+      "/Users/yuuzu/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
+      "/Users/yuuzu/Library/Application Support/Symbols/src"
     ],
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.ADHD_Web.Server: http">
     <configuration name="ADHD_Web.Server: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" />
@@ -178,7 +177,14 @@
       <workItem from="1713497331039" duration="7214000" />
       <workItem from="1713508003209" duration="542000" />
       <workItem from="1713587371842" duration="18890000" />
-      <workItem from="1713700852731" duration="1011000" />
+      <workItem from="1713700852731" duration="1319000" />
+      <workItem from="1713704127342" duration="76000" />
+      <workItem from="1713770405955" duration="1006000" />
+      <workItem from="1713862216713" duration="126000" />
+      <workItem from="1714365988580" duration="1414000" />
+      <workItem from="1714374502732" duration="206000" />
+      <workItem from="1714414483132" duration="31000" />
+      <workItem from="1714530479545" duration="1812000" />
     </task>
     <task id="LOCAL-00001" summary="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
       <option name="closed" value="true" />
@@ -236,7 +242,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713607634388</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Version: 1.0.0&#10;Description:&#10;Release version.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;6. Finish Player detail page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;7. Modal Components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add.">
+      <option name="closed" value="true" />
+      <created>1713704027417</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713704027417</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Version: 1.0.0&#10;Description:&#10;Release version.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;6. Finish Player detail page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;7. Modal Components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add.">
+      <option name="closed" value="true" />
+      <created>1713704077851</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713704077851</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +266,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Version: 0.0.1-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;&#10;Features:&#10;1. HopeUI.&#10;&#10;BugsFix:&#10;NAN" />
@@ -254,7 +287,8 @@
     <MESSAGE value="Version: 0.2.0-dev&#10;Description:&#10;bugfix, add new function and components.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
     <MESSAGE value="Version: 0.3.0-dev&#10;Description:&#10;bugfix, add new function and components.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
     <MESSAGE value="Version: 0.3.1-dev&#10;Description:&#10;bugfix, add new function and components.&#10;Add one more chart on here.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version: 0.3.1-dev&#10;Description:&#10;bugfix, add new function and components.&#10;Add one more chart on here.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
+    <MESSAGE value="Version: 1.0.0&#10;Description:&#10;Release version.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;6. Finish Player detail page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;7. Modal Components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.0.0&#10;Description:&#10;Release version.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;6. Finish Player detail page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;7. Modal Components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
