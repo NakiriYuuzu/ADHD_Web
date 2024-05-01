@@ -10,47 +10,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="Version: 1.0.1&#10;Description:&#10;Fix Dockerfile.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.">
+    <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Models/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/adhd_web.client.esproj" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/adhd_web.client.esproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/bootstrap/_alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/bootstrap/_alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/bootstrap/vendor/_rfs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/bootstrap/vendor/_rfs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/dark/components/alert/_bs-alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/dark/components/alert/_bs-alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/hope-ui-design-system/components/alert/_alert.scss" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/assets/scss/hope-ui-design-system/components/alert/_alert.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/button/ButtonCode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/button/ButtonCode.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/popovers/PopoversCode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/popovers/PopoversCode.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/spinners/SpinnersCode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/spinners/SpinnersCode.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/tooltips/TooltipsCode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/views/design-system/sections/tooltips/TooltipsCode.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adhd_web.client/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/CommunityToolkit.Mvvm.8.2.2.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/License.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/ThirdPartyNotices.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.CodeFixers.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.CodeFixers.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/build/netstandard2.0/CommunityToolkit.Mvvm.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/build/netstandard2.1/CommunityToolkit.Mvvm.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/buildTransitive/netstandard2.0/CommunityToolkit.Mvvm.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/net6.0/CommunityToolkit.Mvvm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/net6.0/CommunityToolkit.Mvvm.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/net6.0/CommunityToolkit.Mvvm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/netstandard2.0/CommunityToolkit.Mvvm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/netstandard2.0/CommunityToolkit.Mvvm.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/netstandard2.0/CommunityToolkit.Mvvm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/netstandard2.1/CommunityToolkit.Mvvm.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/netstandard2.1/CommunityToolkit.Mvvm.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/CommunityToolkit.Mvvm.8.2.2/lib/netstandard2.1/CommunityToolkit.Mvvm.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +189,7 @@
       <workItem from="1714365988580" duration="1414000" />
       <workItem from="1714374502732" duration="206000" />
       <workItem from="1714414483132" duration="31000" />
-      <workItem from="1714530479545" duration="11172000" />
+      <workItem from="1714530479545" duration="14194000" />
     </task>
     <task id="LOCAL-00001" summary="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
       <option name="closed" value="true" />
@@ -308,7 +271,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714532898847</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.">
+      <option name="closed" value="true" />
+      <created>1714542724128</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714542724129</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.">
+      <option name="closed" value="true" />
+      <created>1714543488939</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714543488939</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +319,9 @@
     <MESSAGE value="Version: 1.0.0&#10;Description:&#10;Release version.&#10;&#10;Patch Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;3. Finish Api.&#10;4. Finish few Dashboard.vue components.&#10;5. Finish Dashboard Page.&#10;6. Finish Player detail page.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;3. Level Api.&#10;4. Toast Components.&#10;5. Tailwind Modal Components.&#10;6. Chart components.&#10;7. Modal Components.&#10;&#10;BugsFix:&#10;1. Api Problem.&#10;2. Fix datatable bug.&#10;3. Fix phone size bug.&#10;4. Rework Model make players api cant add." />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/.idea.ADHD_Web/.idea/workspace.xml&#10;#&#9;adhd_web.client/src/presentations/dashboards/Dashboard.vue&#10;#&#9;adhd_web.client/src/presentations/players/PlayerData.vue" />
     <MESSAGE value="Version: 1.0.1&#10;Description:&#10;Fix Dockerfile.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.0.1&#10;Description:&#10;Fix Dockerfile.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile." />
+    <MESSAGE value="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile." />
+    <MESSAGE value="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.1.0&#10;Description:&#10;Dockerized.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml." />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
