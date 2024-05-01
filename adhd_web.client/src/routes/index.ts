@@ -13,12 +13,6 @@ const defaultChildRoutes = (prefix: string) => [
         name: prefix + '.players',
         meta: { auth: true, name: 'Players', isBanner: true },
         component: () => import('@/presentations/players/PlayerData.vue')
-    },
-    {
-        path: 'edit-player',
-        name: prefix + '.edit-player',
-        meta: { auth: true, name: 'Edit Player', isBanner: true },
-        component: () => import('@/presentations/edit_players/EditPlayer.vue')
     }
 ]
 

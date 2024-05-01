@@ -26,10 +26,17 @@
                     <slot name="footer">
                         <button
                             @click="closeModal"
-                            class="bg-primary text-white active:bg-blue-600 font-bold uppercase text-sm px-4 py-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1"
+                            class="bg-danger text-white active:bg-blue-600 font-bold uppercase text-sm px-4 py-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1"
                             type="button"
                             style="transition: all 0.15s ease 0s;">
                             Close
+                        </button>
+                        <button
+                            @click="handleLabelClick"
+                            :class="`${buttonLabel === '' ? 'hidden' : ''} bg-primary text-white active:bg-blue-600 font-bold uppercase text-sm px-4 py-2.5 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1`"
+                            type="button"
+                            style="transition: all 0.15s ease 0s;">
+                            {{ buttonLabel }}
                         </button>
                     </slot>
                 </div>
@@ -50,20 +57,34 @@ export default defineComponent({
         title: {
             type: String,
             default: 'Modal Title'
+        },
+        buttonLabel: {
+            type: String,
+            default: ''
+        },
+        labelOnClicked: {
+            type: Function,
+            default: () => {  }
         }
     },
     setup(props, {emit}) {
         // To allow for reactivity and toRefs destructuring
-        const {modelValue} = toRefs(props)
+        const {modelValue, labelOnClicked} = toRefs(props)
 
         // Emit update to v-model binding
         const closeModal = () => {
             emit('update:modelValue', false)
         }
 
+        const handleLabelClick = (event: MouseEvent) => {
+            labelOnClicked.value(event)
+            closeModal()
+        }
+
         return {
             isVisible: modelValue,
-            closeModal
+            closeModal,
+            handleLabelClick
         }
     }
 })

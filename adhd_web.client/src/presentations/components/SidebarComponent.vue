@@ -8,8 +8,6 @@
             <side-menu title="Players" :static-item="true"></side-menu>
             <side-menu isTag="router-link" title="Detail" icon="users" icon-type="solid"
                        :route="{ to: 'default.players' }"></side-menu>
-            <side-menu isTag="router-link" title="Edit" icon="pencil" icon-type="solid"
-                       :route="{ to: 'default.edit-player' }"></side-menu>
         </ul>
     </default-sidebar>
 </template>

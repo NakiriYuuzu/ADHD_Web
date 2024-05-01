@@ -38,6 +38,7 @@ public class LevelsController(ILevelService levelService) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] LevelRecord levelRecord)
     {
+        Console.WriteLine(levelRecord.PlayerId);
         var result = await levelService.AddLevel(levelRecord);
         return result switch
         {

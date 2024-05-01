@@ -19,7 +19,10 @@
             </div>
         </div>
     </div>
-    <modal-component v-model="modal" :title="`Player ${playerChart.series[0].name} Status`">
+    <modal-component v-model="modal" 
+                     :title="`Player ${playerChart.series[0].name} Status`" 
+                     :button-label="checkLevel() ? 'Submit' : ''" 
+                     :label-on-clicked="submitOnClicked">
         <template #body>
             <div class="row">
                 <div class="col-md-12 col-lg-12">
@@ -28,7 +31,7 @@
                             <div class="card" v-if="result.type === ResultType.SUCCESS">
                                 <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
                                     <div class="header-title">
-                                        <h4 class="card-title">Player Status Chart</h4>
+                                        <h4 class="card-title">Player {{playerChart.series[0].name}}</h4>
                                     </div>
                                     <div class="invisible d-flex align-items-center align-self-center">
                                         <div class="d-flex align-items-center ms-3 text-primary">
@@ -85,7 +88,7 @@
                             <div class="card" v-else>
                                 <div class="flex-wrap card-header d-flex justify-content-between align-items-center">
                                     <div class="header-title">
-                                        <h4 class="card-title">Gender Chart</h4>
+                                        <h4 class="card-title">No Data.</h4>
                                         <p class="mb-0"></p>
                                     </div>
                                 </div>
@@ -93,6 +96,11 @@
                                     <error-display @refresh-parent="fetchData"/>
                                 </div>
                             </div>
+                            <div class="form-group" v-if="checkLevel()">
+                                <label class="form-label" for="lv04">Level 04 Record:</label>
+                                <input type="number" class="form-control" id="lv04" placeholder="ex: 202" v-model="playedTime" />
+                            </div>
+                            <div v-else></div>
                         </div>
                     </div>
                 </div>
@@ -156,11 +164,46 @@ const fetchData = async () => {
         })
 }
 
+const checkLevel = () : boolean => {
+    return playerChart.value.series[0].data.length === 3
+}
+
 const rowOnClicked = (rowData: any) => {
     if (rowData === undefined) return
+    selectedPlayer.value = rowData
     playerChart.value.series[0].name = rowData.name
     playerChart.value.series[0].data = rowData.levelRecords.map((record: LevelRecord) => record.time)
     modal.value = true
+}
+
+const submitOnClicked = () => {
+    fetch('api/Levels', {
+        method: 'POST',
+        headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "playerId": selectedPlayer.value.id,
+            "levelNumber": 3,
+            "difficulty": "normal",
+            "score": 0,
+            "time": playedTime.value
+        })
+    })
+        .then(response => response.json().then(data => ({ok: response.ok, data})))
+        .then(response => {
+            if (response.ok) {
+                makeToast(`Success`, `Player ${playerChart.value.series[0].name} record has been saved.`, ToastColor.Success)
+                fetchData()
+            } else {
+                makeToast(`Error`, `${response.data.message}`, ToastColor.Error)
+            }
+        })
+        .catch(error => {
+            makeToast(`Error`, `${error.message}`, ToastColor.Error)
+        })
+    playedTime.value = ''
 }
 
 const calculateProgress = (data: LevelRecord[]): number => {
@@ -173,6 +216,8 @@ const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string
 let columnsData = ref<{ title: string; data: string; render: Function }[]>([])
 let rowsData = ref([])
 const modal = ref(false)
+const playedTime = ref('')
+const selectedPlayer = ref({} as any)
 const playerChart = ref({
     series: [
         {
