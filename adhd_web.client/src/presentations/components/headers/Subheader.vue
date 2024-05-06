@@ -40,7 +40,7 @@ export default {
         },
         linkUrl: {
             type: String,
-            default: '/'
+            default: 'javascript:void(0);'
         },
         linkText: {
             type: String,

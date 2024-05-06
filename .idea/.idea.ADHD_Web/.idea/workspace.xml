@@ -11,17 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9268d8d1-54f5-4b01-9c73-a0e47506f309" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources/0358a6a4-fd62-40cf-bd23-020fdd68403b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/dataSources/0358a6a4-fd62-40cf-bd23-020fdd68403b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ADHD_Web/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/ADHD_Web.Server.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/LevelsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/LevelsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Controllers/PlayersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Domains/validators/PlayerValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Domains/validators/PlayerValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/AdhdDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Migrations/AdhdDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ADHD_Web.Server/Services/AdhdDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ADHD_Web.Server/Services/AdhdDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/layouts/guest/BlankLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/layouts/guest/BlankLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/dashboards/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/dashboards/Dashboard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adhd_web.client/src/presentations/players/PlayerData.vue" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/presentations/players/PlayerData.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/routes/UriPath.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/routes/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adhd_web.client/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adhd_web.client/src/store/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -275,7 +272,8 @@
       <workItem from="1714374502732" duration="206000" />
       <workItem from="1714414483132" duration="31000" />
       <workItem from="1714530479545" duration="40367000" />
-      <workItem from="1714975443885" duration="4970000" />
+      <workItem from="1714975443885" duration="5359000" />
+      <workItem from="1715008242521" duration="4232000" />
     </task>
     <task id="LOCAL-00001" summary="Version: 0.0.2-dev&#10;Notes:&#10;1. Finish HopeUI with Frontend.&#10;2. Rework Models.&#10;&#10;Features:&#10;1. HopeUI.&#10;2. Player Api.&#10;&#10;BugsFix:&#10;NAN">
       <option name="closed" value="true" />
@@ -405,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714582290736</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Version: 1.3.0&#10;Description:&#10;Dockerized, fixed docker-compose, bug fixed and features, add login and register.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Support add level 04 when level 03 is success.&#10;5. Added Login &amp; register.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.&#10;4. Fix this week problem.&#10;5. Fix XSS problem.">
+      <option name="closed" value="true" />
+      <created>1714980786875</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714980786875</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +449,8 @@
     <MESSAGE value="Version: 1.1.2&#10;Description:&#10;Dockerized, fix docker-compose.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Added Edit Players.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem." />
     <MESSAGE value="Version: 1.1.3&#10;Description:&#10;Dockerized, fixed docker-compose.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Added Edit Players.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem." />
     <MESSAGE value="Version: 1.2.0&#10;Description:&#10;Dockerized, fixed docker-compose, bug fixed and features.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Support add level 04 when level 03 is success.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.&#10;4. Fix this week problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.2.0&#10;Description:&#10;Dockerized, fixed docker-compose, bug fixed and features.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Support add level 04 when level 03 is success.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.&#10;4. Fix this week problem." />
+    <MESSAGE value="Version: 1.3.0&#10;Description:&#10;Dockerized, fixed docker-compose, bug fixed and features, add login and register.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Support add level 04 when level 03 is success.&#10;5. Added Login &amp; register.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.&#10;4. Fix this week problem.&#10;5. Fix XSS problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version: 1.3.0&#10;Description:&#10;Dockerized, fixed docker-compose, bug fixed and features, add login and register.&#10;&#10;Patch Notes:&#10;1. Fix Dockerfile.&#10;2. support docker-compose.&#10;3. Support SSL.&#10;4. Support add level 04 when level 03 is success.&#10;5. Added Login &amp; register.&#10;&#10;BugsFix:&#10;1. Fix Dockerfile.&#10;2. Fix docker-compose.yml.&#10;3. Fix SSL problem.&#10;4. Fix this week problem.&#10;5. Fix XSS problem." />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

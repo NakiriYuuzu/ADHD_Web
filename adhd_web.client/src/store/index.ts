@@ -7,11 +7,14 @@ export default createStore({
     state: {
         shareOffcanvas: false,
         isLoading: false,
-        toasts: [] as Toast[]
+        toasts: [] as Toast[],
+        token: ''
+        
     },
     getters: {
         shareOffcanvas: (state) => state.shareOffcanvas,
         isLoading: (state) => state.isLoading,
+        isLogin: (state) => state.token,
         toasts: (state) => state.toasts
     },
     mutations: {
@@ -26,6 +29,9 @@ export default createStore({
         },
         removeToastCommit(state, toastId: number) {
             state.toasts = state.toasts.filter(toast => toast.id !== toastId)
+        },
+        setTokenCommit(state, token: string) {
+            state.token = token
         }
     },
     actions: {
@@ -54,6 +60,9 @@ export default createStore({
         },
         removeToastAction({commit}, toastId: number) {
             commit('removeToastCommit', toastId)
+        },
+        setTokenAction({commit}, token: string) {
+            commit('setTokenCommit', token)
         }
     },
     modules: {

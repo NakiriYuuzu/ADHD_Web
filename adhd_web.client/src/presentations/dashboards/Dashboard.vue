@@ -304,6 +304,8 @@ import {onMounted, watchEffect, ref} from 'vue'
 // components imports
 import AnalyticsWidget from '@/components/widgets/AnalyticsWidget.vue'
 import ErrorDisplay from "@/presentations/components/errors/ErrorDisplay.vue"
+import {checkToken} from "@/modules/Token";
+import router from "@/routes";
 
 // functional
 const fetchData = async () => {
@@ -460,7 +462,6 @@ const updateGenderLevelChart = () => {
         const startOfPeriod = getStartOfPeriod(now, period)
         const timePeriodPlayers = playersData.value.filter(player => new Date(player.createdAt) >= startOfPeriod)
         const counts = countGenderLevelPeriod(timePeriodPlayers, startOfPeriod, period)
-        console.log(genderLevelChart.value)
         genderLevelChart.value.series[0].data = counts.male
         genderLevelChart.value.series[1].data = counts.female
         genderLevelChart.value.options.xaxis.categories.splice(0, genderChart.value.options.xaxis.categories.length, ...categories.value)
@@ -770,6 +771,10 @@ watchEffect(() => {
 })
 
 onMounted(() => {
+    if (!checkToken()) {
+        router.push({name: 'auth.login'})
+        return
+    }
     fetchData()
 })
 </script>

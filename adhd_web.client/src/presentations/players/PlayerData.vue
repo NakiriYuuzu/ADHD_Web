@@ -121,7 +121,9 @@ import 'datatables.net-bs5'
 import DataTable from "@/components/DataTable.vue"
 import ModalComponent from "@/presentations/components/modals/ModalComponent.vue"
 import ErrorDisplay from "@/presentations/components/errors/ErrorDisplay.vue"
-import {formatDate} from "@/domains/utils/DateUtil";
+import {formatDate} from "@/domains/utils/DateUtil"
+import {checkToken} from "@/modules/Token"
+import router from "@/routes"
 
 const fetchData = async () => {
     result.value = {type: ResultType.LOADING}
@@ -336,6 +338,10 @@ watchEffect(() => {
 })
 
 onMounted(() => {
+    if (!checkToken()) { 
+        router.push({name: 'auth.login'}) 
+        return
+    }
     fetchData()
 })
 </script>
