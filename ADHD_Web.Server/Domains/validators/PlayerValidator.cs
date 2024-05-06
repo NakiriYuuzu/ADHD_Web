@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace ADHD_Web.Server.Domains.validators;
 
 public static class PlayerValidator
@@ -7,6 +9,12 @@ public static class PlayerValidator
         "male",
         "female"
     ];
+    
+    public static bool VerifyName(string name)
+    {
+        var isNameValid = new Regex(@"^[a-zA-Z\s]*$");
+        return isNameValid.IsMatch(name);
+    }
 
     public static bool VerifyAge(int age)
     {

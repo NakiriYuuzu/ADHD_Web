@@ -137,6 +137,8 @@ const fetchData = async () => {
                         data: key,
                         render: function (data: any) {
                             switch (key) {
+                                case 'name':
+                                    return `${escapeHtml(data)}`
                                 case 'createdAt':
                                     return formatDate(data)
                                 case 'levelRecords':
@@ -210,6 +212,17 @@ const calculateProgress = (data: LevelRecord[]): number => {
     if (data.length === 0) return 0
     const levels = data.map(record => record.levelNumber).length
     return (levels / 4) * 100
+}
+
+// avoid xss script attack
+
+const escapeHtml = (unsafe: string) => {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
 }
 
 const result = ref({type: ResultType.IDLE, error: ''} as Result<Player[], string>)

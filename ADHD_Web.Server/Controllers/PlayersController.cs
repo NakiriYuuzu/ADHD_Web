@@ -52,9 +52,12 @@ public class PlayersController(IPlayersService playersService) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Player player)
     {
+        if (player.Name == null) return BadRequest(new {message = "Please provide your name!"});
         if (player.Gender == null) return BadRequest(new {message = "Please provide your gender!"});
+        var nameValidator = PlayerValidator.VerifyName(player.Name);
         var ageValidator = PlayerValidator.VerifyAge(player.Age);
         var genderValidator = PlayerValidator.VerifyGender(player.Gender);
+        if (!nameValidator) return BadRequest(new {message = "Name is invalid."});
         if (!ageValidator) return BadRequest(new {message = "Age is invalid."});
         if (!genderValidator) return BadRequest(new { message = "Please check your gender in " + string.Join(", ", PlayerValidator.GenderList) });
 

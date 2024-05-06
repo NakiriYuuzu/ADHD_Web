@@ -22,6 +22,7 @@ builder.Services.AddDbContext<AdhdDbContext>(options =>
 );
 
 // Dependency Injection
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPlayersService, PlayersService>();
 builder.Services.AddScoped<ILevelService, LevelService>();
 
