@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: ADHD_Web.Server/Dockerfile
+    restart: always
     networks:
       - adhd_network
     ports:
@@ -18,6 +19,7 @@ services:
 
   nginx:
     image: nginx:latest
+    restart: always
     ports:
       - "80:80"
       - "443:443"
