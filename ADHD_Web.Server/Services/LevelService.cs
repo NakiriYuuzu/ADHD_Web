@@ -66,6 +66,29 @@ public class LevelService(AdhdDbContext context, ILogger<PlayersService> logger)
     {
         try
         {
+            if (levelRecord.LevelNumber > 3) 
+            {
+                return new Result<LevelRecord, DataError>.Failure(new DataError(
+                    dataErrorType: DataErrorType.UnknownError,
+                    message: "Level number must start from 0 until 3."
+                ));
+            }
+            
+            // check current player level records if level number is duplicate
+            var levelRecordQuery = context.LevelRecords.AsNoTracking();
+            var levelRecords = await levelRecordQuery
+                .Where(lr => lr.PlayerId == levelRecord.PlayerId)
+                .Where(lr => lr.LevelNumber == levelRecord.LevelNumber)
+                .ToListAsync();
+            
+            if (levelRecords.Count > 0)
+            {
+                return new Result<LevelRecord, DataError>.Failure(new DataError(
+                    dataErrorType: DataErrorType.DuplicateData,
+                    message: $"Level number {levelRecord.LevelNumber} already exists for player."
+                ));
+            }
+            
             levelRecord.CreatedAt = DateTime.Now;
             
             await context.LevelRecords.AddAsync(levelRecord);

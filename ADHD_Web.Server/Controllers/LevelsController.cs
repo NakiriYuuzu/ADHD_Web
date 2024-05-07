@@ -46,6 +46,8 @@ public class LevelsController(ILevelService levelService) : ControllerBase
             {
                 { DataErrorType: DataErrorType.UnknownError } error => StatusCode(
                     StatusCodes.Status500InternalServerError, new { message = error.Message }),
+                { DataErrorType: DataErrorType.DuplicateData } error => StatusCode(
+                    StatusCodes.Status400BadRequest, new { message = error.Message }),
                 { DataErrorType: DataErrorType.DatabaseError } error => StatusCode(
                     StatusCodes.Status500InternalServerError, new { message = error.Message }),
 
