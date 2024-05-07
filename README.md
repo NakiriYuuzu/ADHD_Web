@@ -1,9 +1,9 @@
 # ADHD_WEB
 ## Installation
 ### Docker
-```dockerfile
-
-```
+1. go to ADHD_Web.Server and find appsettings.json
+2. change the connection string to your own and set the host to "db"
+3. run `docker-compose up --build`
 ### Vue
 ```
 # If using macos and get this problem:
