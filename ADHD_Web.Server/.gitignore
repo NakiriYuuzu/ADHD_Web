@@ -42,4 +42,6 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
+StoredFiles
+
 adhd_web.client.esproj.FileListAbsolute.txt

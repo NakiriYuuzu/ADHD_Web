@@ -12,6 +12,12 @@ const defaultChildRoutes = (prefix: string) => [
         name: prefix + '.players',
         meta: {auth: true, name: 'Players', isBanner: true},
         component: () => import('@/presentations/players/PlayerData.vue')
+    },
+    {
+        path: 'downloads',
+        name: prefix + '.downloads',
+        meta: {auth: true, name: 'Downloads', isBanner: true},
+        component: () => import('@/presentations/downloads/Download.vue')
     }
 ]
 
